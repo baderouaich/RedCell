@@ -1,0 +1,67 @@
+/// Register Local Fonts https://reactgo.com/add-fonts-to-react-app/
+@font-face {
+  font-family: 'SF-Pro-Display-Black';
+  src: local('SF-Pro-Display-Black'), url('./Resources/Fonts/SF-Pro-Display-Black.otf') format('truetype');
+}
+@font-face {
+  font-family: 'SF-Pro-Display-Bold';
+  src: local('SF-Pro-Display-Bold'), url('./Resources/Fonts/SF-Pro-Display-Bold.otf') format('truetype');
+}
+@font-face {
+  font-family: 'SF-Pro-Display-Heavy';
+  src: local('SF-Pro-Display-Heavy'), url('./Resources/Fonts/SF-Pro-Display-Heavy.otf') format('truetype');
+}
+@font-face {
+  font-family: 'SF-Pro-Display-Light';
+  src: local('SF-Pro-Display-Light'), url('./Resources/Fonts/SF-Pro-Display-Light.otf') format('truetype');
+}
+@font-face {
+  font-family: 'SF-Pro-Display-Medium';
+  src: local('SF-Pro-Display-Medium'), url('./Resources/Fonts/SF-Pro-Display-Medium.otf') format('truetype');
+}
+@font-face {
+  font-family: 'SF-Pro-Display-Regular';
+  src: local('SF-Pro-Display-Regular'), url('./Resources/Fonts/SF-Pro-Display-Regular.otf') format('truetype');
+}
+@font-face {
+  font-family: 'SF-Pro-Display-Semibold';
+  src: local('SF-Pro-Display-Semibold'), url('./Resources/Fonts/SF-Pro-Display-Semibold.otf') format('truetype');
+}
+@font-face {
+  font-family: 'SF-Pro-Display-Thin';
+  src: local('SF-Pro-Display-Thin'), url('./Resources/Fonts/SF-Pro-Display-Thin.otf') format('truetype');
+}
+@font-face {
+  font-family: 'SF-Pro-Display-Ultralight';
+  src: local('SF-Pro-Display-Ultralight'), url('./Resources/Fonts/SF-Pro-Display-Ultralight.otf') format('truetype');
+}
+///
+
+
+html
+{
+  font-size: 10px;
+}
+
+html, body
+{
+  height: 100%;
+
+  // to remove margin of header card in top
+  padding: 0;
+  margin: 0;
+  //
+
+  // application's default font family as SF-Pro-Display-Regular
+  font-family: 'SF-Pro-Display-Regular', 'SF-Pro-Display-Medium';
+  //
+}
+
+/// Target everything to be a bordered box
+*
+{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+///

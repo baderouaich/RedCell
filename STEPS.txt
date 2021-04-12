@@ -1,0 +1,26 @@
+# Setup 
+[
+	- created redcell project with 2 dirs frontend & backend
+	- cd to front end and cmd: $ npx create-react-app .
+	- created frontend/src/Resources with Fonts/ Images/ 
+	- deleted unecessary files frontend/src/setupTests.js, App.test.js, logo.svg and reportWebVitals.js, public/logo192.png logo512.png favicon.ico
+	- deleted unecessary code in index.js bellow (serviceworker.unre... and reportWebVitals for node 15 and up)
+	- changed app name from frontend to redcell in package.json and package-lock.json
+	- commented public/index.html link to favicon which was deleted and link to logo192..
+	- Changed public/index.html <title> to RedCell
+	- Removed unused "web-vitals": "^1.1.1" dependency from package.json dependencies{}     
+	- Removed deleted icons from public/manifest.json
+	- modified meta in index.html description 
+	- cd frontend && npm start (to test)
+	- all clean! git push first commit.
+]
+
+
+
+
+
+# Install Dependencies
+[
+	- .scss SASS package: cd frontend && $ npm install node-sass (will be auto added to package.json dependencies{}
+	- 
+]
