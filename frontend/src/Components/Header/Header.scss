@@ -2,4 +2,29 @@
 {
     height: 6.5rem; // 6.5rem is equivelent 65px
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); // header shadow as a card
+
+    // Linear Gradient color
+    background-image: linear-gradient(to right, whitesmoke, rgb(248, 92, 92));
+
+    display: flex;
+
+    // Logo
+    img
+    {
+        width: 60px;
+        padding: 6px;
+        margin-left: 2.5rem; // 25px
+    } 
+    
+    // Put RedCell text after Logo
+    &::after
+    {
+        content: "RedCell";
+        font-family: 'SF-Pro-Display-Heavy';
+        color: rgb(102, 86, 86);
+        text-shadow: 0px 3px salmon;
+        font-size: 2.0rem; // 20px
+        align-self: center; // put me in the center, since .header is flex box
+        padding: 5px;
+    }
 }
