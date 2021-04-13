@@ -22,5 +22,9 @@
 # Install Dependencies
 [
 	- .scss SASS package: cd frontend && $ npm install node-sass (will be auto added to package.json dependencies{}
-	- 
+	- TODO material-ui core and icons https://material-ui.com/getting-started/installation/ : $ npm install @material-ui/core @material-ui/icons
 ]
+
+
+
+#
