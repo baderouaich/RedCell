@@ -1,0 +1,21 @@
+//=== Application Theme Color System (primary color, secondary color...) inspired from https://material.io/design/color/the-color-system.html#color-theme-creation ===//
+
+
+// Color classes from materializecss https://materializecss.com/color.html
+
+$primary-color: #ef5350; // red lighten-1
+$secondary-color: #ff5252; // red accent-2
+
+$background-color: whitesmoke;
+
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+/*
+$primary-color: rgb(255, 94, 94);
+$primary-color-variant:  rgb(218, 105, 105);
+$secondary-color: rgb(67, 146, 156);$secondary-color-variant: rgb(35, 91, 99);
+
+$background-color: rgb(245, 245, 245);
+
+$shadow-color: rgba(0, 0, 0, 0.1);
+*/

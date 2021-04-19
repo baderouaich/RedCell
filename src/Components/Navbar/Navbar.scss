@@ -1,0 +1,50 @@
+@import "./../../Theme/Theme.scss";
+
+.logo
+{
+    padding: 3px;
+    width: 150px;
+    margin-top: 12px;
+}
+
+/*
+$header-height: 3.6rem;
+
+.header
+{
+    height: $header-height; 
+    box-shadow: 0 3px 4px 0 $shadow-color; 
+    background-color: $primary-color; 
+
+
+    // Logo
+    img
+    {
+        height: $header-height;
+        padding: 10px;
+        margin-left: 2.5rem; // 25px
+    } 
+
+}
+*/
+/*
+.header
+{
+    height: 6.0rem; // 6.0rem is equivelent 60px
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); // header shadow as a card
+
+    // Linear Gradient color
+  //  background-image: linear-gradient(to right, whitesmoke, rgb(248, 92, 92));
+    background-color: $primary-color;// rgb(238, 98, 98)
+    display: flex;
+    flex-direction: row;
+
+    // Logo
+    img
+    {
+        padding: 10px;
+        margin-left: 2.5rem; // 25px
+    } 
+    
+    
+}*/

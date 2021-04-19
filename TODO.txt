@@ -1,0 +1,8 @@
+make Theme.scss which has colors variables
+$color_primary: #FF0000;
+$color-green: #00FF00;
+$color-blue: #0000FF;
+
+and @import './../Theme';
+
+@import "partial";

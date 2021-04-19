@@ -16,13 +16,16 @@
 ]
 
 
-
+# Enable Emmet in vs react project: https://medium.com/@eshwaren/enable-emmet-support-for-jsx-in-visual-studio-code-react-f1f5dfe8809c
 
 
 # Install Dependencies
 [
 	- .scss SASS package: cd frontend && $ npm install node-sass (will be auto added to package.json dependencies{}
-	- TODO material-ui core and icons https://material-ui.com/getting-started/installation/ : $ npm install @material-ui/core @material-ui/icons
+	- react-router-dom for routing: $ npm install react-router-dom
+	- materialize-css for design https://materializecss.com/getting-started.html: (copy where it says CDN to index.html) <!-- Compiled and minified CSS -->
+    <link rel="s...
+
 ]
 
 

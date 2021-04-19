@@ -1,3 +1,10 @@
-# Project setup (first 10mins): https://www.youtube.com/watch?v=7gQay39krqY&list=PL-Db3tEF6pB8UO2MmccX-5qeGDX9rek7Q&index=2
+# Follow up tutorial: https://www.youtube.com/playlist?list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3
 
-# Login & Register Forms: https://www.youtube.com/watch?v=fWQFfnAUKyU
+1- Done Introduction
+2- Done Planning the App
+3- Done Setting Up
+4- Done Navbar Component
+5- Done Dashboard Component
+6- Done Project Summary Component
+7- Done Project Details Component TREATED AS BloodDonationRequest
+8- Login & Signup Components

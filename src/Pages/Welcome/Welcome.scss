@@ -1,0 +1,28 @@
+.background{
+    // width: 100%;
+    // height: 100%;
+   
+    background-image: url('./../../Resources/Images/HomeBackground.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /// darken image
+    $bightness_value: 36%;
+    filter: brightness($bightness_value);
+    -webkit-filter: brightness($bightness_value);
+    ///
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    .container h2
+    {
+        padding: 100px;
+        color: whitesmoke;
+        font-weight: 300;
+        font-size: 63px;
+    }
+}
