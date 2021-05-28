@@ -1,0 +1,13 @@
+@import "../../Theme/Theme.scss";
+
+.footer
+{
+    box-shadow: 0 0 3px 0 $shadow-color; 
+    padding: 6px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'SF-Pro-Display-Light';
+    background-image: linear-gradient(to bottom, whitesmoke, rgb(255, 235, 235));
+
+}

@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import './App.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Navbar from './Components/Navbar';
-import Dashboard from './Pages/Dashboard';
-import NotFound404 from './Pages/NotFound404'
+import Navbar from './Components/Navbar/Navbar';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import NotFound404 from './Pages/NotFound404/NotFound404'
 // BD Request Model
 import BloodDonationRequestSummary from './Components/BloodDonationRequestSummary/BloodDonationRequest'
 // BD Request Page view
