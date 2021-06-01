@@ -1,0 +1,12 @@
+CREATE USER RedCell IDENTIFIED BY RedCell;
+GRANT ALL PRIVILEGES TO RedCell;
+
+CREATE TABLE Donneur
+(
+	nom
+);
+
+CREATE TABLE
+(
+
+);

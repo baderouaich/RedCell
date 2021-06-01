@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 1, 2021, 6:24:53 PM
+    Author     : bader
+*/
+
+/*=== Application Theme Color System ===
+Usage: @import "Theme.css"; in your style and call bellow constants using var(constant)
+*/
+
+/* palette: https://colorhunt.co/palette/225760 */
+:root
+{
+    --color-background: whitesmoke;
+    --color-primary: #f05454;
+    --color-primary-dark: #903749;
+    --color-accent: #30475e;
+    --color-accent-dark: #222831;
+    --color-shadow: rgb(34, 40, 49, 0.1);
+    
+    --font-family: "SF-Pro-Display-Regular" !important;
+    --font-size: 0.8rem;
+}
+
+$color: while;
