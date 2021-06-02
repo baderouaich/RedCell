@@ -27,8 +27,14 @@
         <div class="container">
 
             <form class="register-form"> 
-                <p class="title">Vous voulez sauver des vies ? Entrez vos coordonnées pour devenir donateur ! et quelqu'un qui a besoin de sang vous contactera au besoin.<br> <span>(N.B : vous pouvez vous désinscrire à tout moment)</span></p>
-               
+                <h1 class="title">S'inscrire</h1>
+                <hr style="width: 100%;">
+
+                <p class="description">
+                    Vous voulez sauver des vies ? inscrivez-vous pour devenir donateur !<br>
+                    Quand quelqu'un a besoin de sang, il vous contactera avec les détails que vous avez fournis ci-dessous.<br>
+                        <span>(N.B : vous pouvez vous désinscrire à tout moment)</span>
+                </p>
 
                 <div class="input-form">
                     <label>Prenom<span style="color:red;">*</span> :</label>
@@ -48,6 +54,8 @@
                 <div class="input-form">
                     <label>Adresse<span style="color:red;">*</span> :</label>
                     <input type="text" name="adresse" placeholder="Adresse..." required/>
+                    <!--<textarea rows="5" cols="10" name="adresse" placeholder="Adresse..." required></textarea>-->
+
                 </div>
 
                 <div class="input-form">
@@ -86,7 +94,7 @@
                 </div>
 
                 
-                <input class="register-button" type="submit" value="S'inscrire"/>
+                <input class="register-button" type="submit" name="operation" value="S'inscrire"/>
             </form>
         </div>
 

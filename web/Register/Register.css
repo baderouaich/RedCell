@@ -43,24 +43,42 @@ and open the template in the editor.
     padding: 30px;
     margin: 30px;
     border-radius: 10px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     
 }
+
 .title
 {
-    color: var(--color-accent-dark);
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 33px;
+    text-align: center;
+    color: var(--color-accent);
 }
-.title span
+
+.description
 {
-    color: var(--color-primary);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    
+    border: 1px solid var(--color-accent);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+    background-image: url("./../Resources/Images/DefaultBackground.jpg");
+    background-size: cover;
+    background-position: center center;
 }
+.description span
+{
+    color: linen;
+    font-size: 14px;
+    font-weight: 100;
+}
+
 
 .input-form
 {
@@ -79,7 +97,7 @@ and open the template in the editor.
 }
 
 .input-form textarea{
-    width: 300px;
+    width: 250px;
     border: 1px solid var(--color-accent);
     border-radius: 8px;
     resize: none;
