@@ -10,7 +10,7 @@ and open the template in the editor.
 
 
 /* ///////////////////////////=================== Theme.css which includes defaults =================//////////////////////////////////////////////// */
-@import "${pageContext.request.contextPath}/Theme.css";
+@import "Theme.css";
 /* ///////////////////////////=======================================================================//////////////////////////////////////////////// */
 
 
@@ -19,7 +19,7 @@ and open the template in the editor.
 {
    width: 100%; 
    height: 100%;
-   background-image: url('${pageContext.request.contextPath}/Resources/Images/AcceuilBackground.jpg');
+   background-image: url('Resources/Images/AcceuilBackground.jpg');
    background-size: cover;
    background-position: center center;
    background-repeat: no-repeat; 

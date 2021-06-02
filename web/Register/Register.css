@@ -8,18 +8,111 @@ and open the template in the editor.
     Author     : bader
 */
 /* ///////////////////////////=================== Theme.css which includes defaults =================//////////////////////////////////////////////// */
-@import "${pageContext.request.contextPath}/Theme.css";
+@import "../Theme.css";
 /* ///////////////////////////=======================================================================//////////////////////////////////////////////// */
 
 
 
-body
+.background-image
 {
    width: 100%; 
    height: 100%;
-   background-image: url('${pageContext.request.contextPath}/Resources/Images/undraw_medicine_b1ol.png');
+   /*background-image: url('./../Resources/Images/AcceuilBackground.jpg');*/
+   background-image: url('./../Resources/Images/undraw_medicine_b1ol.png');
    background-size: cover;
    background-position: center center;
    background-repeat: no-repeat; 
    background-attachment: fixed;
+   
+
+
+}
+.container{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 15px;
+   
+}
+.register-form
+{
+    min-width: 300px;
+    background-color: var(--color-background);
+    width: 45%;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.title
+{
+    color: var(--color-accent-dark);
+    font-size: 24px;
+    font-weight: 600;
+}
+.title span
+{
+    color: var(--color-primary);
+}
+
+.input-form
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+
+.input-form label{
+    width: 180px;
+    font-weight: 100;
+}
+
+.input-form textarea{
+    width: 300px;
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    resize: none;
+}
+.input-form input, select {
+    width: 250px;
+    height: 33px;
+    border: 1px solid var(--color-accent);
+    border-radius: 3px;
+}
+
+
+.register-button
+{
+    width: 250px;
+    height: 36px;
+   /* border: 1px solid var(--color-primary); */
+    border-radius: 6px;
+    background-color: var(--color-accent);
+    color: whitesmoke;
+    margin: 30px 0 0 0;
+    padding: 8px ;
+    font-size: 16px;
+}
+.register-button:hover{
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+}
+
+
+.divider
+{
+    height: 2px;
+    background-color: black;
 }

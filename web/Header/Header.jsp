@@ -27,7 +27,7 @@
        {
             display: inline-block;
             width: 100%;
-            padding: 0px 80px;
+            padding: 0px 33px;
             position: relative;
             font-size: 16px;
             background-color: var(--color-primary);
@@ -86,9 +86,13 @@
         {
             display: none;
             position: absolute;
-            width: 35px;
+            width: 33px;
+            right: 26px;
+            top: 23px;
+            /*      
             right: 26px;
             top: 27px;
+            */
         }
         .toggle-btn span
         {
@@ -96,7 +100,7 @@
             float: left;
             width: 100%;
             height: 3px;
-            background-color: #fff952;
+            background-color: whitesmoke;
             margin-bottom: 8px;
             border-radius: 8px;
         }
@@ -113,7 +117,7 @@
             {
                 display: none;
                 width: 100%;
-                border-top: 1px solid #fff952 ;
+                border-top: 1px solid whitesmoke;
                 padding-top: 20px;
                 margin-top: 20px;
                 text-align: center;
