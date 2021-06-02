@@ -4,22 +4,20 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Jun 1, 2021, 5:34:04 PM
+    Created on : Jun 2, 2021, 4:59:23 PM
     Author     : bader
 */
-
-
 /* ///////////////////////////=================== Theme.css which includes defaults =================//////////////////////////////////////////////// */
 @import "${pageContext.request.contextPath}/Theme.css";
 /* ///////////////////////////=======================================================================//////////////////////////////////////////////// */
 
 
 
-.background-image
+body
 {
    width: 100%; 
    height: 100%;
-   background-image: url('${pageContext.request.contextPath}/Resources/Images/AcceuilBackground.jpg');
+   background-image: url('${pageContext.request.contextPath}/Resources/Images/undraw_medicine_b1ol.png');
    background-size: cover;
    background-position: center center;
    background-repeat: no-repeat; 

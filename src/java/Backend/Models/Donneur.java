@@ -3,11 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Backend.Models;
 
 /**
  *
  * @author bader
  */
-public class Connexion {
+import java.io.Serializable;
+
+
+public class Donneur implements Serializable
+{
     
+    
+    public boolean isLoggedIn()
+    {
+        return this != null;
+    }
 }

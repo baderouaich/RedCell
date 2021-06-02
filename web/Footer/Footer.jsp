@@ -10,12 +10,20 @@
 <html>
     <head>
         <title>Footer</title>
+        
+       <!-- Libraries BEGIN -->
+        <link rel="stylesheet"  href="${pageContext.request.contextPath}/Libraries/font-awesome/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/jquery/jquery-3.6.0.min.js"></script>
+       <!-- Libraries END -->
+
     </head>
    
     
     <style type="text/css">
-        @import "Theme.css";
-        
+        /* ///////////////////////////=================== Theme.css which includes defaults =================//////////////////////////////////////////////// */
+        @import "${pageContext.request.contextPath}/Theme.css";
+        /* ///////////////////////////=======================================================================//////////////////////////////////////////////// */
+    
         /* FOOTER BEGIN */
         footer
         {
@@ -40,12 +48,19 @@
             width: 25%;
             padding: 20px 50px 50px;
         }
+        .website-description
+        {
+            font-size: 18px;
+            font-family: var(--font-family-light);
+        }
+       
         .footer-bottom
         {
-            background-color: var(--color-accent-dark) ;
+            background-color: var(--color-accent-dark);
             color: whitesmoke;
             text-align: center;
             padding: 10px;
+            font-family: var(--font-family-thin);
         }
         .footer-top-items ul {
             padding: 0px;
@@ -62,24 +77,26 @@
             color: var(--color-primary);
             background-color: none;
         }
-        .social-icon{
+        .social-icon
+        {
             color: var(--color-primary);
             background-color: none;
             text-decoration: none;
             font-size: 30px;
-            padding-right:30px ;
+            padding-right: 30px;
         }
+      
         /* FOOTER END */
 
     </style>
     
     <body>
-        <footer class="footer">
+        <footer>
             <div class="footer-top">
             
               <div class="footer-top-items">
                 <h2>RedCell</h2>
-                <p>
+                <p class="website-description">
                     RedCell est une site web qui facilite la procédure de recherche et de don de sang.<br>
                     L’objectif principal de ce site est de faciliter le processus de recherche d'un donneur de sang et de gagner du temps en particulier dans les cas critiques où cela peut sauver des vies.
                 </p>
@@ -105,7 +122,7 @@
                   <i class="fa fa-map-pin icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;Boulevard Al Qods Sidi Maârouf 20190 Casablanca</span>
                   <br>
                   <br>
-                  <i class="fa fa-phone icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;+212 05 22 33 44 55</span>
+                  <i class="fa fa-phone icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;+212 06 39 24 95 43</span>
                   <br>
                   <br>
                   <i class="fa fa-envelope icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;ouaichbadereddine@gmail.com</span>
