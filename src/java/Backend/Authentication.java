@@ -145,7 +145,7 @@ public class Authentication extends HttpServlet {
                    if(r != 0)
                    {
                         // Donor successfully registered, Send him/her to login page. 
-                        response.sendRedirect("/Login/Login.jsp");
+                        response.sendRedirect("Login/Login.jsp");
                    }
                    else // Failed to insert doneur to database
                    {
@@ -174,7 +174,7 @@ public class Authentication extends HttpServlet {
                     // Validate fields
                     if(email.isEmpty() || password.isEmpty())
                     {
-                        Reply(request, response, "/Login/Login.jsp", "Tous les champs doivent être remplis");
+                        Reply(request, response, "Login/Login.jsp", "Tous les champs doivent être remplis");
                         return;
                     }
                         
@@ -197,7 +197,7 @@ public class Authentication extends HttpServlet {
                         session.setAttribute("nom", R.getObject(3));
                         
                         // Send user to Profile page
-                        response.sendRedirect("/Profile/Profile.jsp");
+                        response.sendRedirect("Profile/Profile.jsp");
                     }
                     else
                     {
@@ -230,8 +230,8 @@ public class Authentication extends HttpServlet {
                     HttpSession session = request.getSession();
                     // delete session from server
                     session.invalidate();
-                    //Redirect donor to index Acceuil
-                    response.sendRedirect("index.jsp");
+                    //Redirect donor to login page
+                    response.sendRedirect("Login/Login.jsp");
                     break;
                 } 
                     

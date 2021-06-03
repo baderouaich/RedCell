@@ -4,9 +4,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Jun 2, 2021, 5:12:02 PM
+    Created on : Jun 3, 2021, 9:24:38 PM
     Author     : bader
 */
+
 
 /* ///////////////////////////=================== Theme.css which includes defaults =================//////////////////////////////////////////////// */
 @import "../Theme.css";
@@ -47,8 +48,8 @@ and open the template in the editor.
     
     margin: 0 20px 10px 20px;
     padding: 15px;
-
 }
+
 
 
 .profile-image

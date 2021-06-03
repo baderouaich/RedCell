@@ -1,19 +1,20 @@
 <%-- 
-    Document   : Profile
-    Created on : Jun 2, 2021, 5:11:57 PM
+    Document   : ViewDonor
+    Created on : Jun 3, 2021, 9:23:54 PM
     Author     : bader
 --%>
+
+<!--
+Détails du donateur page
+On click at donor in search result, visitor will be sent here with request attribute of donor's id
+-->
+
 <%
-    /* Login Guard: to be placed above any protected page which requires login such as Profile.jsp*/
-
-    // If Donor is not logged in, send him/her to Acceuil Page
-    if (session.getAttribute("id") == null
-            || session.getAttribute("prenom") == null
-            || session.getAttribute("nom") == null) 
+    // Check if we received Donneur id with request, otherwise go back to index.jsp or Search.jsp in future
+    if(request.getAttribute("id") == null)
     {
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
+        response.sendRedirect("index.jsp");
     }
-
 %>
 
 
@@ -39,14 +40,10 @@
     <body>
         <%@include file="../Header/Header.jsp" %>
 
-        <%            
-            // get doneur id stored in session
-            String id = session.getAttribute("id").toString();
-            if (id == null)// extra check, just to make sure
-            {
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
-                return;
-            }
+        <%          
+            // get doneur id from request attribute
+            String id = request.getAttribute("id").toString();
+           
 
             String req = "SELECT * FROM Donneur WHERE id = " + id;
             System.out.println(req);
@@ -93,35 +90,30 @@
                     <div class="profile-groupe-sanguin"><%= groupe_sanguin %></div>
                 </div>
 
-                <div class="divider"></div>
+                
+            </div> 
 
+
+
+            <div class="right">
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">   
                     <div class="profile-section-title">Adresse</div>
                     <div class="profile-adresse"><%= ville %>, <%= adresse %></div>
                 </div>
 
                 <div class="divider"></div>
-                                
+
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">   
                     <div class="profile-section-title">Date de Naissance</div>
                     <div class="profile-date-naissance"><%= date_naissance %></div>
                 </div>
 
                 <div class="divider"></div>
-                
+
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">   
                     <div class="profile-section-title">Telephone</div>
                     <div  class="profile-telephone"><%= telephone %></div>
                 </div>
-            </div> 
-
-
-            <!-- Left part contains all doneur info to be modified, will be shown only to the profile owner  -->
-            <div class="right">
-                
-                TODO Edit Texts & Labels & Save button to modify all left as 
-                 https://www.bootdey.com/snippets/view/account-setting-or-edit-profile<br>
-                 https://bootsnipp.com/tags/profile/4<br>
             </div> 
 
         </div>

@@ -7,15 +7,6 @@
 
 <%@page import="Backend.Connexion"%>
 <%@page import="java.sql.ResultSet"%>
-<%
-//@include file="LoginGuard.jsp" 
-%>
-<%
-    //User currUser = null;
-    //currUser = (User) session.getAttribute("user");
-%>
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,7 +40,12 @@
                 out.print("<p>" + R.getObject("id") + " " + R.getObject("prenom") + "</p>");
             }
          
-        %>
+
+            /*
+            request.setAttribute("id", "3");
+            request.getRequestDispatcher("/ViewDonor/ViewDonor.jsp").forward(request, response);
+            */
+        %> 
             <h1>Hello World!</h1>
         
         
