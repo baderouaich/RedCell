@@ -11,3 +11,87 @@ and open the template in the editor.
 /* ///////////////////////////=================== Theme.css which includes defaults =================//////////////////////////////////////////////// */
 @import "../Theme.css";
 /* ///////////////////////////=======================================================================//////////////////////////////////////////////// */
+
+
+.background-image
+{
+    width: 100%; 
+    height: 100%;
+    /*background-image: url('./../Resources/Images/AcceuilBackground.jpg');*/
+    background-image: url('./../Resources/Images/undraw_medical_care_movn.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;   
+}
+
+
+.login-form
+{
+    min-width: 300px;
+    background-color: var(--color-background);
+    width: 33%;
+    padding: 45px;
+    margin: 66px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.title
+{
+    font-size: 33px;
+    text-align: center;
+    color: var(--color-accent);
+}
+
+.input-form
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.input-form input, select {
+    width: 250px;
+    height: 33px;
+    border: 1px solid var(--color-accent);
+    border-radius: 3px;
+}
+.input-form label
+{
+    width: 150px;
+    font-weight: 100;
+}
+
+.login-button
+{
+    width: 250px;
+    height: 36px;
+   /* border: 1px solid var(--color-primary); */
+    border-radius: 6px;
+    background-color: var(--color-accent);
+    color: whitesmoke;
+    margin-top: 30px;
+    font-size: 15px;
+}
+.login-button:hover{
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+}

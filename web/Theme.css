@@ -51,6 +51,31 @@ Usage: @import "Theme.css"; in your style and call bellow constants using var(co
   src: local('SF-Pro-Display-Ultralight'), url('./Resources/Fonts/SF-Pro-Display-Ultralight.otf') format('truetype');
 }
 
+/* palette: https://colorhunt.co/palette/225760 */
+:root
+{
+    /* Colors */
+    --color-background: whitesmoke;
+    --color-primary: #f05454;
+    --color-primary-dark: #903749;
+    --color-accent: #30475e;
+    --color-accent-dark: #222831;
+    /* --color-shadow: rgb(34, 40, 49, 0.1); */
+    
+    
+    /* Fonts */
+    --font-family-black: "SF-Pro-Display-Black" !important;
+    --font-family-bold: "SF-Pro-Display-Bold" !important;
+    --font-family-heavy: "SF-Pro-Display-Heavy" !important;
+    --font-family-light: "SF-Pro-Display-Light" !important;
+    --font-family-medium: "SF-Pro-Display-medium" !important;
+    --font-family-regular: "SF-Pro-Display-Regular" !important;
+    --font-family-semibold: "SF-Pro-Display-Semibold" !important;
+    --font-family-thin: "SF-Pro-Display-Thin" !important;
+    --font-family-ultralight: "SF-Pro-Display-Ultralight" !important;
+    --font-size: 0.8rem;
+}
+
 
 html, body
 {
@@ -78,32 +103,52 @@ html, body
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+
+/* Error messages div design */
+.message-error
+{
+    padding: 10px;
+    border: 1px solid var(--color-primary);
+    background-color: pink;
+    color: var(--color-primary-dark);
+    font-weight: 300;
+    font-size: 18px;
+    width: 100%;
+    margin: 10px;
+    border-radius: 6px;
+}
+
+/* Information messages div design */
+.message-info
+{
+    padding: 10px;
+    border: 1px solid green;
+    background-color: darkseagreen;
+    color: whitesmoke;
+    font-weight: 300;
+    font-size: 18px;
+    width: 100%;
+    margin: 10px;
+    border-radius: 6px;
+}
+
+/* Warning messages div design */
+.message-warn
+{
+    padding: 10px;
+    border: 1px solid orange;
+    background-color: moccasin;
+    color: var(--color-primary-dark);
+    font-weight: 300;
+    font-size: 18px;
+    width: 100%;
+    margin: 10px;
+    border-radius: 6px;
+}
+
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 
 
 
-/* palette: https://colorhunt.co/palette/225760 */
-:root
-{
-    /* Colors */
-    --color-background: whitesmoke;
-    --color-primary: #f05454;
-    --color-primary-dark: #903749;
-    --color-accent: #30475e;
-    --color-accent-dark: #222831;
-    /* --color-shadow: rgb(34, 40, 49, 0.1); */
-    
-    
-    /* Fonts */
-    --font-family-black: "SF-Pro-Display-Black" !important;
-    --font-family-bold: "SF-Pro-Display-Bold" !important;
-    --font-family-heavy: "SF-Pro-Display-Heavy" !important;
-    --font-family-light: "SF-Pro-Display-Light" !important;
-    --font-family-medium: "SF-Pro-Display-medium" !important;
-    --font-family-regular: "SF-Pro-Display-Regular" !important;
-    --font-family-semibold: "SF-Pro-Display-Semibold" !important;
-    --font-family-thin: "SF-Pro-Display-Thin" !important;
-    --font-family-ultralight: "SF-Pro-Display-Ultralight" !important;
-    --font-size: 0.8rem;
-}

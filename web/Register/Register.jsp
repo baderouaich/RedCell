@@ -3,6 +3,16 @@
     Created on : Jun 2, 2021, 4:59:13 PM
     Author     : bader
 --%>
+<%
+    // If Donor is already logged in, send him/her to Acceuil Page, not need to register when u are already logged 
+    if(session.getAttribute("id") != null &&
+       session.getAttribute("prenom") != null &&
+       session.getAttribute("nom") != null)
+    {
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
+    }
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +24,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Register</title>
-        <link rel="stylesheet" href="Register.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/Register/Register.css"/>
 
     </head>
     <body class="background-image">
@@ -22,11 +32,23 @@
         <%@include file="../Header/Header.jsp" %>
 
 
-
-
+        
+        
         <div class="container">
 
-            <form class="register-form"> 
+            <form action="../Authentication" method="POST" class="register-form">
+                <!-- Error Messages from Authentication Servlet BEGIN -->
+                <%
+                    if(request.getAttribute("message") != null)
+                    {%>
+                    <div class="message-error">
+                        <%= request.getAttribute("message") %>
+                    </div>
+                    <%}
+                %>                 
+                <!-- Error Messages from Authentication Servlet END -->
+
+                
                 <h1 class="title">S'inscrire</h1>
                 <hr style="width: 100%;">
 
@@ -90,21 +112,19 @@
 
                 <div class="input-form">
                     <label>Mot de passe<span style="color:red;">*</span> :</label>
-                    <input type="password" name="password"  placeholder="Password..." required/>
+                    <input type="password" name="password"  placeholder=">Mot de passe..." required/>
                 </div>
 
                 
                 <input class="register-button" type="submit" name="operation" value="S'inscrire"/>
+               
+                
             </form>
         </div>
 
 
-
-
-
-
-
-
+        
+        
 
         <%@include file="../Footer/Footer.jsp" %>
 

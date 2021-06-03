@@ -12,14 +12,14 @@ import java.util.logging.Logger;
  */
 
 public class Connexion 
-{
+{    
     public static Connection Seconnecter()
     {
         try
         {
            Class.forName("oracle.jdbc.driver.OracleDriver");
             
-           java.sql.Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","RedCell","RedCell");
+           Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "RedCell", "RedCell");
  
            System.out.println("Successfully connected to oracle database RedCell");
 

@@ -4,7 +4,15 @@
     Author     : bader
 --%>
 
+
 <%
-    if(session.getAttribute("donneur") == null)
-        response.sendRedirect("/index.jsp");
+    /* Login Guard: to be placed above any protected page which requires login such as Profile.jsp*/
+    
+    // If Donor is not logged in, send him/her to Acceuil Page
+    if(session.getAttribute("id") == null ||
+       session.getAttribute("prenom") == null ||
+       session.getAttribute("nom") == null)
+    {
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
+    }
 %>

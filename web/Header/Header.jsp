@@ -40,7 +40,7 @@
         }
         .logo:hover
         {
-            transform: translate3d(0px, -3px, 0px); 
+            transform: translate3d(0px, 3px, 3px); 
             transition: 500ms;
         }
         .header-logo
@@ -63,17 +63,21 @@
             display: inline-block;
             color: whitesmoke;
             font-weight: 100;
-            font-size: 18px;
+            font-size: 17px;
             /*text-transform: uppercase;*/
-            transition: 250ms;
+            transition: 300ms;
+            border-radius: 6px;
         }
         nav ul li a:hover
         {
             color: white;
             font-weight: 700;
             font-size: 20px;
-            transition: 250ms;
-            
+            border: 1px white solid;
+            padding: 5px;
+            transition: 300ms;
+            border-radius: 6px;
+            font-size: 18px;
         }
         #active-tab
         {
@@ -136,6 +140,24 @@
                 display: block;
             }
         }
+        
+        .se-deconnecter-button
+        {
+            background-color: var(--color-primary);
+            color: whitesmoke;
+            font-size: 17px;
+            border-radius: 6px;
+            padding: 5px;
+            border: 0;
+            transition: 300ms;
+        }
+        .se-deconnecter-button:hover
+        {
+            font-size: 18px;
+            background-color: var(--color-accent);
+            cursor: pointer;
+            transition: 300ms;
+        }
     </style>
 
 
@@ -157,12 +179,17 @@
                    <li><a href="${pageContext.request.contextPath}/About/About.jsp" >Qui Somme Nous ?</a></li>
 
                     <%
-                        Donneur donneur = (Donneur)session.getAttribute("donneur");
+                         final boolean isLoggedIn = session.getAttribute("id") != null && session.getAttribute("nom") != null && session.getAttribute("prenom") != null;
                         // If donneur is logged in, show [Profil] | [Se Déconnecter] nav items
-                        if(donneur != null) // Logged in
+                        if(isLoggedIn) // Logged in
                         {%>
                              <li><a href="${pageContext.request.contextPath}/Profile/Profile.jsp">Profil</a></li>  
-                             <li><a href="${pageContext.request.contextPath}/Logout/Logout.jsp">Se Déconnecter</a></li>  
+                             <li>
+                               <form action="${pageContext.request.contextPath}/Authentication" method="POST">
+                                 <!--<li><a href="${pageContext.request.contextPath}/Logout/Logout.jsp" name="operation" value="Se Deconnecter">Se Déconnecter</a></li> -->
+                                   <input type="submit" name="operation" value="Se Deconnecter" class="se-deconnecter-button" /> 
+                                </form>
+                             </li>
                       <%} 
                         else // Donneur is not logged in, show [Connexion] | [Devenir donateur ? S'inscrire]
                         {%>
