@@ -4,7 +4,6 @@
     Author     : bader
 --%>
 
-<%@page import="Backend.Models.Donneur"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
@@ -175,6 +174,10 @@
                 <ul>
                     <!-- Acceuil, always visible -->
                    <li><a href="${pageContext.request.contextPath}/index.jsp" id="active-tab">Acceuil</a></li>
+                   
+                    <!-- Chercher des donateurs, always visible -->
+                   <li><a href="${pageContext.request.contextPath}/Chercher/Chercher.jsp" >Chercher des Donateurs</a></li>
+                   
                     <!-- Qui Somme Nous ?, always visible -->
                    <li><a href="${pageContext.request.contextPath}/About/About.jsp" >Qui Somme Nous ?</a></li>
 

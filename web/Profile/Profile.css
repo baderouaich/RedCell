@@ -32,29 +32,30 @@ and open the template in the editor.
 }
 .right
 {
-    width: 50%;
+    width: 39%;
+
 }
 .left, .right
 {
     min-width: 300px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    border-radius: 5px;
+    border-radius: 6px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     margin: 0 20px 10px 20px;
-    padding: 15px;
+    /*padding: 5px;*/
 
 }
 
 
 .profile-image
 {
-  border-radius: 50%;
-  margin: 15px 15px 5px 15px;
+    border-radius: 50%;
+    margin: 15px 15px 5px 15px;
 }
 
 .profile-full-name-container
@@ -102,18 +103,20 @@ and open the template in the editor.
     font-size: 20px;
     font-weight: 600;
     color: #1768ac;
+    text-align: center;
 }
 .profile-groupe-sanguin
 {
     background-color: #f55c47;
     color: white;
-    border-radius: 50%;
-    padding: 6px;
+    border-radius: 20%;
+    padding: 10px;
     font-size: 24px;
     font-weight: 900;
     margin: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     transition: 500ms;
+    letter-spacing: .3rem;
 }
 .profile-groupe-sanguin:hover
 {
@@ -129,7 +132,7 @@ and open the template in the editor.
     font-size: 16px;
     color: grey;
     padding: 10px;
-    
+
 }
 
 
@@ -140,4 +143,114 @@ and open the template in the editor.
     height: 1px;
     margin: 15px 0 15px 0;
     background-color: #dddddd;
+}
+
+
+
+.profile-left-title
+{
+    padding: 10px 5px 5px 10px;
+    font-size: 22px;
+    color: #1768ac;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+}
+.profile-modify-section
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+.profile-modify-input-form
+{
+    margin: 5px;
+    padding: 5px;
+}
+.profile-modify-input-form textarea{
+    width: 250px;
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    resize: none;
+}
+
+.profile-modify-input-form label
+{
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 17px;
+    color: #1768ac;
+}
+.profile-modify-input-form input, select
+{
+    padding: 6px;
+    font-size: 15px;
+    border: 1px solid #aeaeae;
+    border-radius: 3px;
+}
+
+
+.profile-modify-disponible
+{
+    background-color: var(--color-accent);
+    color: white;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 100;
+    padding: 10px;
+    width: fit-content;
+    margin-left: 10px; 
+    
+
+    align-self: baseline;
+}
+
+
+
+.buttons-container
+{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: whitesmoke;
+}
+
+.modifier-profile-button
+{
+    width: 250px;
+    height: 39px;
+    color: white;
+    background-color: var(--color-accent2);
+    color: whitesmoke;
+    font-size: 15px;
+    border: 0;
+    transition: 500ms;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.supprimer-compte-button
+{
+    width: 250px;
+    height: 39px;
+    color: white;
+    background-color: tomato;
+    color: whitesmoke;
+    font-size: 15px;
+    border: 0;
+    transition: 500ms;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.supprimer-compte-button:hover, .modifier-profile-button:hover
+{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 500ms;
 }

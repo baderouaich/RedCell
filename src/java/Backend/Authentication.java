@@ -90,11 +90,10 @@ public class Authentication extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
-        
-             
             String operation = request.getParameter("operation");
             switch(operation)
             {
+                //#####################################################################################################//
                 case "S'inscrire": // Register
                 try 
                 {
@@ -159,12 +158,17 @@ public class Authentication extends HttpServlet {
                       Reply(request, response, "/Register/Register.jsp", "Erreur Interne du Serveur: " + e.getMessage());
                 }
                 break;
+                //#####################################################################################################//
+
                 
                 
                 
                 
                 
                 
+                
+                
+                //#####################################################################################################//
                 case "Connexion":
                 try 
                 {
@@ -215,6 +219,7 @@ public class Authentication extends HttpServlet {
                       Reply(request, response, "/Register/Register.jsp", "Erreur Interne du Serveur: " + e.getMessage());
                 }
                 break;
+                //#####################################################################################################//
 
                 
                 
@@ -224,7 +229,7 @@ public class Authentication extends HttpServlet {
                 
                 
                 
-                
+                //#####################################################################################################//
                 case "Se Deconnecter":
                 {
                     HttpSession session = request.getSession();
@@ -234,7 +239,7 @@ public class Authentication extends HttpServlet {
                     response.sendRedirect("Login/Login.jsp");
                     break;
                 } 
-                    
+                //#####################################################################################################//
             }
         
     }

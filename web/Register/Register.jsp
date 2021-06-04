@@ -36,7 +36,7 @@
         
         <div class="container">
 
-            <form action="../Authentication" method="POST" class="register-form">
+            <form action="${pageContext.request.contextPath}/Authentication" method="POST" class="register-form">
                 <!-- Error Messages from Authentication Servlet BEGIN -->
                 <%
                     if(request.getAttribute("message") != null)

@@ -4,9 +4,25 @@
         <servlet-name>Authentication</servlet-name>
         <servlet-class>Backend.Authentication</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MiseAJour</servlet-name>
+        <servlet-class>Backend.MiseAJour</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Chercher</servlet-name>
+        <servlet-class>Backend.Chercher</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Authentication</servlet-name>
         <url-pattern>/Authentication</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MiseAJour</servlet-name>
+        <url-pattern>/MiseAJour</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Chercher</servlet-name>
+        <url-pattern>/Chercher</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

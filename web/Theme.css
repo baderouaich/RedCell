@@ -59,6 +59,7 @@ Usage: @import "Theme.css"; in your style and call bellow constants using var(co
     --color-primary: #f05454;
     --color-primary-dark: #903749;
     --color-accent: #30475e;
+    --color-accent2: #39a6a3;
     --color-accent-dark: #222831;
     /* --color-shadow: rgb(34, 40, 49, 0.1); */
     
@@ -114,9 +115,10 @@ html, body
     color: var(--color-primary-dark);
     font-weight: 300;
     font-size: 18px;
-    width: 100%;
+    width: fit-content;
     margin: 10px;
     border-radius: 6px;
+    
 }
 
 /* Information messages div design */
@@ -128,7 +130,7 @@ html, body
     color: whitesmoke;
     font-weight: 300;
     font-size: 18px;
-    width: 100%;
+    width: fit-content;    
     margin: 10px;
     border-radius: 6px;
 }
@@ -142,7 +144,7 @@ html, body
     color: var(--color-primary-dark);
     font-weight: 300;
     font-size: 18px;
-    width: 100%;
+    width: fit-content;    
     margin: 10px;
     border-radius: 6px;
 }

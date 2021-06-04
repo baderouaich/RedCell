@@ -9,6 +9,7 @@
        session.getAttribute("nom") != null)
     {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
+        return;
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
