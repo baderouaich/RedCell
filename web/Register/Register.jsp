@@ -112,7 +112,7 @@
 
                 <div class="input-form">
                     <label>Mot de passe<span style="color:red;">*</span> :</label>
-                    <input type="password" name="password"  placeholder=">Mot de passe..." required/>
+                    <input type="password" name="password"  placeholder="Mot de passe..." required/>
                 </div>
 
                 

@@ -16,8 +16,57 @@
 
     </head>
 
+
+    <body>
+        <header>
+            <div class="toggle-btn" onclick="$('nav').toggle('show');">
+                <span></span>
+                <span></span>
+                <span class="bottom-span"></span>
+            </div>
+            <div class="logo">
+                <a href="${pageContext.request.contextPath}/index.jsp"><img class="header-logo" src="${pageContext.request.contextPath}/Resources/Images/Logo.png" alt="RedCell Logo"></a>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <!-- Acceuil, always visible -->
+                    <li><a href="${pageContext.request.contextPath}/index.jsp" id="${pageContext.request.requestURI.equals('/RedCell/index.jsp') ? 'active-tab' : ''}">Acceuil</a></li>
+                   
+                    <!-- Chercher des donateurs, always visible -->
+                   <li><a href="${pageContext.request.contextPath}/Chercher/Chercher.jsp" id="${pageContext.request.requestURI.equals('/RedCell/Chercher/Chercher.jsp') ? 'active-tab' : ''}">Chercher des Donateurs</a></li>
+                   
+                    <!-- Qui Somme Nous ?, always visible -->
+                   <li><a href="${pageContext.request.contextPath}/About/About.jsp" id="${pageContext.request.requestURI.equals('/RedCell/About/About.jsp') ? 'active-tab' : ''}">Qui Somme Nous ?</a></li>
+
+                    <%
+                         final boolean isLoggedIn = session.getAttribute("id") != null && session.getAttribute("nom") != null && session.getAttribute("prenom") != null;
+                        // If donneur is logged in, show [Profil] | [Se Déconnecter] nav items
+                        if(isLoggedIn) // Logged in
+                        {%>
+                             <li><a href="${pageContext.request.contextPath}/Profile/Profile.jsp" id="${pageContext.request.requestURI.equals('/RedCell/Profile/Profile.jsp') ? 'active-tab' : ''}">Profil</a></li>  
+                             <li>
+                               <form action="${pageContext.request.contextPath}/Authentication" method="POST">
+                                 <!--<li><a href="${pageContext.request.contextPath}/Logout/Logout.jsp" name="operation" value="Se Deconnecter">Se Déconnecter</a></li> -->
+                                   <input type="submit" name="operation" value="Se Deconnecter" class="se-deconnecter-button" /> 
+                                </form>
+                             </li>
+                      <%} 
+                        else // Donneur is not logged in, show [Connexion] | [Devenir donateur ? S'inscrire]
+                        {%>
+                             <li><a href="${pageContext.request.contextPath}/Login/Login.jsp" id="${pageContext.request.requestURI.equals('/RedCell/Login/Login.jsp') ? 'active-tab' : ''}">Connexion</a></li>  
+                             <li><a href="${pageContext.request.contextPath}/Register/Register.jsp" id="${pageContext.request.requestURI.equals('/RedCell/Register/Register.jsp') ? 'active-tab' : ''}">Devenir Donateur? S'inscrire</a></li>  
+                      <%}
+                    %>
+                         
+                </ul>
+            </nav>
+        </header>
+    </body>
     
-    <style type="text/css">
+    
+    
+    
+        <style type="text/css">
         /* ///////////////////////////=================== Theme.css which includes defaults =================//////////////////////////////////////////////// */
         @import "${pageContext.request.contextPath}/Theme.css";
         /* ///////////////////////////=======================================================================//////////////////////////////////////////////// */
@@ -158,51 +207,4 @@
             transition: 300ms;
         }
     </style>
-
-
-    <body>
-        <header>
-            <div class="toggle-btn" onclick="$('nav').toggle('show');">
-                <span></span>
-                <span></span>
-                <span class="bottom-span"></span>
-            </div>
-            <div class="logo">
-                <a href="${pageContext.request.contextPath}/index.jsp"><img class="header-logo" src="${pageContext.request.contextPath}/Resources/Images/Logo.png" alt="RedCell Logo"></a>
-            </div>
-            <nav id="nav">
-                <ul>
-                    <!-- Acceuil, always visible -->
-                   <li><a href="${pageContext.request.contextPath}/index.jsp" id="active-tab">Acceuil</a></li>
-                   
-                    <!-- Chercher des donateurs, always visible -->
-                   <li><a href="${pageContext.request.contextPath}/Chercher/Chercher.jsp" >Chercher des Donateurs</a></li>
-                   
-                    <!-- Qui Somme Nous ?, always visible -->
-                   <li><a href="${pageContext.request.contextPath}/About/About.jsp" >Qui Somme Nous ?</a></li>
-
-                    <%
-                         final boolean isLoggedIn = session.getAttribute("id") != null && session.getAttribute("nom") != null && session.getAttribute("prenom") != null;
-                        // If donneur is logged in, show [Profil] | [Se Déconnecter] nav items
-                        if(isLoggedIn) // Logged in
-                        {%>
-                             <li><a href="${pageContext.request.contextPath}/Profile/Profile.jsp">Profil</a></li>  
-                             <li>
-                               <form action="${pageContext.request.contextPath}/Authentication" method="POST">
-                                 <!--<li><a href="${pageContext.request.contextPath}/Logout/Logout.jsp" name="operation" value="Se Deconnecter">Se Déconnecter</a></li> -->
-                                   <input type="submit" name="operation" value="Se Deconnecter" class="se-deconnecter-button" /> 
-                                </form>
-                             </li>
-                      <%} 
-                        else // Donneur is not logged in, show [Connexion] | [Devenir donateur ? S'inscrire]
-                        {%>
-                             <li><a href="${pageContext.request.contextPath}/Login/Login.jsp">Connexion</a></li>  
-                             <li><a href="${pageContext.request.contextPath}/Register/Register.jsp">Devenir donateur? S'inscrire</a></li>  
-                      <%}
-                    %>
-                         
-                </ul>
-            </nav>
-        </header>
-    </body>
 </html>
