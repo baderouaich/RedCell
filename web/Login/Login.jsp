@@ -33,7 +33,7 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
         <!-- Default Scripts END -->
     </head>
-    <body class="background-image">
+    <body>
         
         <%@include file="../Header/Header.jsp" %>
 
@@ -42,7 +42,7 @@
         <div class="container">
             
             
-           <img  class="left" src="${pageContext.request.contextPath}/Resources/Images/undraw_gifts_btw0.png" alt="RedCell"/>
+           <img  class="left" src="${pageContext.request.contextPath}/Resources/Images/undraw_doctors_hwty.png" alt="RedCell"/>
 
 
             <div class="right">
@@ -52,7 +52,7 @@
                     <%
                         if(request.getAttribute("message") != null)
                         {%>
-                            <div class=<%= "message-"+request.getAttribute("type")%> style="width: fit-content">
+                            <div class=<%= "message-"+request.getAttribute("type")%> style="width: fit-content;">
                                 <%= request.getAttribute("message") %>
                             </div>
                         <%}

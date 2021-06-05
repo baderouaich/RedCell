@@ -159,7 +159,7 @@
                 <%
                     if(request.getAttribute("message") != null)
                     {%>
-                        <div class=<%= "message-"+request.getAttribute("type")%> style="width: fit-content">
+                        <div class=<%= "message-"+request.getAttribute("type")%> style="width: fit-content;">
                             <%= request.getAttribute("message") %>
                         </div>
                     <%}
@@ -281,8 +281,8 @@
 
 
                 <div class="buttons-container">
-                    <button class="modifier-profile-button fa fa-save" onclick="OnOperationButtonClicked(this);" type="submit" name="operation" value="Modifier">&nbsp;Modifier</button>
-                    <button class="supprimer-compte-button fa fa-trash" onclick="OnOperationButtonClicked(this);" type="submit" name="operation" value="Supprimer mon compte">&nbsp;Supprimer mon compte</button>
+                    <button class="modifier-profile-button fa fa-save" onclick="OnOperationButtonClicked(this);" type="submit" name="operation" value="Modifier">&nbsp;&nbsp;&nbsp;Modifier</button>
+                    <button class="supprimer-compte-button fa fa-trash" onclick="OnOperationButtonClicked(this);" type="submit" name="operation" value="Supprimer mon compte">&nbsp;&nbsp;&nbsp;Supprimer mon compte</button>
                 </div>
                 
             </form>  

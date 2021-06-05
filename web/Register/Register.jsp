@@ -37,26 +37,23 @@
         <!-- Default Scripts END -->
     </head>
     
-    <script>
-        var selected_region = 1;
-        
-    </script>
     
-    <body class="background-image">
+    <body>
 
         <%@include file="../Header/Header.jsp" %>
 
 
-        
-        
-        <div class="container">
-                           
+          <div class="container">
+     
+              
+            <img  class="right" src="${pageContext.request.contextPath}/Resources/Images/undraw_gifts_btw0.png" alt="RedCell"/>
+
             <form action="${pageContext.request.contextPath}/Authentication" method="POST" class="register-form">
                 <!-- Alert Messages from Servlet BEGIN -->
                 <%
                     if(request.getAttribute("message") != null)
                     {%>
-                        <div class=<%= "message-"+request.getAttribute("type")%> style="width: fit-content">
+                        <div class=<%= "message-"+request.getAttribute("type")%> style="width: fit-content;">
                             <%= request.getAttribute("message") %>
                         </div>
                     <%}
@@ -135,11 +132,17 @@
                 </div>
 
                 
-                    
+              <div class="button-container">
                 <input class="register-button" type="submit" name="operation" value="S'inscrire"/>
+              </div>
                
-                
+              <div class="login-hint">
+                        Vous avez déjà un compte ? <a href="${pageContext.request.contextPath}/Login/Login.jsp"> Connectez-vous ici</a>
+             </div>
+
             </form>
+       
+
         </div>
 
 
