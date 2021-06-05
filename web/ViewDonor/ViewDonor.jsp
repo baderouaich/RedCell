@@ -11,11 +11,10 @@ On click at donor in search result, visitor will be sent here with request attri
 
 <%
     // Check if we received Donneur id with request, otherwise go back to index.jsp or Search.jsp in future
-    if(request.getAttribute("id") == null)
+    if(request.getAttribute("id_donneur") == null)
     {
         response.sendRedirect("index.jsp");
         return;
-
     }
 %>
 
@@ -34,8 +33,15 @@ On click at donor in search result, visitor will be sent here with request attri
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Profile</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Profile/Profile.css"/>
+        
+        <!-- Libraries BEGIN -->
+        <link rel="stylesheet"  href="${pageContext.request.contextPath}/Libraries/font-awesome/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/jquery/jquery-3.6.0.min.js"></script>
+        <!-- Libraries END -->
 
-
+        <!-- Default Scripts BEGIN -->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
+        <!-- Default Scripts END -->
     </head>
 
 

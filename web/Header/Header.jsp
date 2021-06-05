@@ -25,7 +25,7 @@
                 <span class="bottom-span"></span>
             </div>
             <div class="logo">
-                <a href="${pageContext.request.contextPath}/index.jsp"><img class="header-logo" src="${pageContext.request.contextPath}/Resources/Images/Logo.png" alt="RedCell Logo"></a>
+                <a href="${pageContext.request.contextPath}/index.jsp"><img class="header-logo" src="${pageContext.request.contextPath}/Resources/Images/LogoLight.png" alt="RedCell Logo"></a>
             </div>
             <nav id="nav">
                 <ul>
@@ -39,11 +39,11 @@
                    <li><a href="${pageContext.request.contextPath}/About/About.jsp" id="${pageContext.request.requestURI.equals('/RedCell/About/About.jsp') ? 'active-tab' : ''}">Qui Somme Nous ?</a></li>
 
                     <%
-                         final boolean isLoggedIn = session.getAttribute("id") != null && session.getAttribute("nom") != null && session.getAttribute("prenom") != null;
+                         final boolean isLoggedIn = session.getAttribute("id_donneur") != null;
                         // If donneur is logged in, show [Profil] | [Se Déconnecter] nav items
                         if(isLoggedIn) // Logged in
                         {%>
-                             <li><a href="${pageContext.request.contextPath}/Profile/Profile.jsp" id="${pageContext.request.requestURI.equals('/RedCell/Profile/Profile.jsp') ? 'active-tab' : ''}">Profil</a></li>  
+                             <li><a href="${pageContext.request.contextPath}/Profile/Profile.jsp" id="${pageContext.request.requestURI.equals('/RedCell/Profile/Profile.jsp') ? 'active-tab' : ''}">Mon Profil</a></li>  
                              <li>
                                <form action="${pageContext.request.contextPath}/Authentication" method="POST">
                                  <!--<li><a href="${pageContext.request.contextPath}/Logout/Logout.jsp" name="operation" value="Se Deconnecter">Se Déconnecter</a></li> -->

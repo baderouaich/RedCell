@@ -67,12 +67,12 @@ public class MiseAJour extends HttpServlet {
 
     
     
-    private void Reply(HttpServletRequest request, HttpServletResponse response, String path, String message, boolean isError)
+    private void Reply(HttpServletRequest request, HttpServletResponse response, String path, String message, String message_type)
     {
         try 
         {
             System.out.println("Replying " + path + " with message: " + message);
-            request.setAttribute("isError", isError);
+            request.setAttribute("type", message_type);
             request.setAttribute("message", message);
             request.getRequestDispatcher(path).forward(request, response);
         } 
@@ -82,11 +82,11 @@ public class MiseAJour extends HttpServlet {
         }
     }
     
-    private boolean isOldPasswordValid(final String id, final String old_password)
+    private boolean isOldPasswordValid(final String id_donneur, final String old_password)
     {
         try 
         {
-            ResultSet R =  Connexion.Seconnecter().createStatement().executeQuery("SELECT id FROM Donneur WHERE password = '" + old_password + "' AND id = '"+ id + "'");
+            ResultSet R =  Connexion.Seconnecter().createStatement().executeQuery("SELECT id_donneur FROM Donneur WHERE password = '" + old_password + "' AND id_donneur = "+ id_donneur);
             return R.next();
         } catch (SQLException ex) {
             Logger.getLogger(MiseAJour.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,12 +103,12 @@ public class MiseAJour extends HttpServlet {
             //#####################################################################################################//
             case "Modifier":
             try {
-                String id = request.getSession().getAttribute("id").toString();
+               
+                String id_donneur = request.getSession().getAttribute("id_donneur").toString();
                 String prenom = request.getParameter("prenom");
                 String nom = request.getParameter("nom");
-                String ville = request.getParameter("ville");
-                String adresse = request.getParameter("adresse");
-                String groupe_sanguin = request.getParameter("groupe_sanguin");
+                String id_ville = request.getParameter("id_ville");
+                String id_groupe_sanguin = request.getParameter("id_groupe_sanguin");
                 String date_naissance = request.getParameter("date_naissance");
                 String telephone = request.getParameter("telephone");
                 String email = request.getParameter("email");
@@ -116,27 +116,26 @@ public class MiseAJour extends HttpServlet {
                 String new_password = request.getParameter("new_password");
                 String disponible = request.getParameter("disponible"); disponible = disponible == null ? "non" : "oui";
                         
-                /*
-                System.out.println("id: " + id);
+                
+                System.out.println("id_donneur: " + id_donneur);
                 System.out.println("prenom: " + prenom);
                 System.out.println("nom: " + nom);
-                System.out.println("ville: " + ville);
-                System.out.println("adresse: " + adresse);
-                System.out.println("groupe_sanguin: " + groupe_sanguin);
+                System.out.println("id_ville: " + id_ville);
+                System.out.println("id_groupe_sanguin: " + id_groupe_sanguin);
                 System.out.println("date_naissance: " + date_naissance);
                 System.out.println("telephone: " + telephone);
                 System.out.println("email: " + email);
                 System.out.println("old_password: " + old_password);
                 System.out.println("new_password: " + new_password);
                 System.out.println("disponible: " + disponible);
-                */
+                
                 
                 // Validate fields
-                if(prenom.isEmpty() || nom.isEmpty() || ville.isEmpty() || adresse.isEmpty() ||
-                   groupe_sanguin.isEmpty() || date_naissance.isEmpty() || telephone.isEmpty() ||
+                if(prenom.isEmpty() || nom.isEmpty() || id_ville.isEmpty() ||
+                   id_groupe_sanguin.isEmpty() || date_naissance.isEmpty() || telephone.isEmpty() ||
                    email.isEmpty() || disponible.isEmpty())
                 {
-                    Reply(request, response, "/Profile/Profile.jsp", "Tous les champs sont obligatoires pour modifier votre profil", true);
+                    Reply(request, response, "/Profile/Profile.jsp", "Tous les champs sont obligatoires pour modifier votre profil", "warn");
                     return;
                 }
                 
@@ -144,26 +143,26 @@ public class MiseAJour extends HttpServlet {
                 String req = "UPDATE Donneur SET "
                         + "prenom = '" + prenom + "', "
                         + "nom = '" + nom + "', "
-                        + "ville = '" + ville + "', "
-                        + "adresse = '" + adresse + "', "
-                        + "groupe_sanguin = '" + groupe_sanguin + "', "
+                        + "id_region = " + "( SELECT id_region FROM Ville WHERE id_ville = " + id_ville + " ), "
+                        + "id_ville = " + id_ville + ", "
+                        + "id_groupe_sanguin = " + id_groupe_sanguin + ", "
                         + "date_naissance = TO_DATE('" + date_naissance.replace("-", "/") + "', 'yyyy/mm/dd'), "
                         + "telephone = '" + telephone + "', "
                         + "email = '" + email + "', "
                         + "disponible = '" + disponible + "' ";
                 if(!old_password.isEmpty() && !new_password.isEmpty())
                 {
-                  if(isOldPasswordValid(id, old_password))
+                  if(isOldPasswordValid(id_donneur, old_password))
                   {
                       req += ", password = '"+new_password+"' ";
                   }
                   else
                   {
-                    Reply(request, response, "/Profile/Profile.jsp", "Le mot de passe précédent n'est pas correct", true);
+                    Reply(request, response, "/Profile/Profile.jsp", "Le mot de passe précédent n'est pas correct", "error");
                     return;
                   }
                 }
-                req += " WHERE id = '"+id+"'";
+                req += " WHERE id_donneur = "+id_donneur;
                 
                 System.out.println(req);     
                 
@@ -171,17 +170,17 @@ public class MiseAJour extends HttpServlet {
                 int r = Connexion.Seconnecter().createStatement().executeUpdate(req);
                 if(r != 0)
                 {
-                    Reply(request, response, "/Profile/Profile.jsp", "Les détails du profil ont été modifiés avec succès", false);
+                    Reply(request, response, "/Profile/Profile.jsp", "Les détails du profil ont été modifiés avec succès", "info");
                 }
                 else
                 {
-                    Reply(request, response, "/Profile/Profile.jsp", "Échec de la modification des détails du profil", true);
+                    Reply(request, response, "/Profile/Profile.jsp", "Échec de la modification des détails du profil", "error");
                 }
             } 
             catch (final Exception ex) 
             {
                 Logger.getLogger(MiseAJour.class.getName()).log(Level.SEVERE, null, ex);
-                Reply(request, response, "/Profile/Profile.jsp", "Erreur Interne du Serveur: " + ex.getMessage(), true);
+                Reply(request, response, "/Profile/Profile.jsp", "Erreur Interne du Serveur: " + ex.getMessage(), "error");
             }
             break;
             //#####################################################################################################//
@@ -194,25 +193,25 @@ public class MiseAJour extends HttpServlet {
             case "Supprimer mon compte":
             try
             {
-                String id = request.getSession().getAttribute("id").toString();
-                String req = "DELETE FROM Donneur WHERE id = '"+id+"'";
+                String id = request.getSession().getAttribute("id_donneur").toString();
+                String req = "DELETE FROM Donneur WHERE id_donneur = "+id+"";
                 System.out.println(req);
                 int r = Connexion.Seconnecter().createStatement().executeUpdate(req);
                 if(r != 0)
                 {
                     // Logout donor
                     request.getSession().invalidate();
-                    Reply(request, response, "/Register/Register.jsp", "Nous sommes désolés de vous voir partir... Nous avons supprimé toutes vos données des bases de données. N'hésitez pas à revenir à tout moment, il y a encore beaucoup de personnes qui ont besoin de dons de sang.", false);
+                    Reply(request, response, "/Register/Register.jsp", "Nous sommes désolés de vous voir partir... Nous avons supprimé toutes vos données des bases de données. N'hésitez pas à revenir à tout moment, il y a encore beaucoup de personnes qui ont besoin de dons de sang.", "warn");
                 }
                 else
                 {
-                    Reply(request, response, "/Profile/Profile.jsp", "Échec de la suppression de votre compte de la base de données", true);
+                    Reply(request, response, "/Profile/Profile.jsp", "Échec de la suppression de votre compte de la base de données", "error");
                 }                
             }
             catch (final Exception ex) 
             {
                 Logger.getLogger(MiseAJour.class.getName()).log(Level.SEVERE, null, ex);
-                Reply(request, response, "/Profile/Profile.jsp", "Erreur Interne du Serveur: " + ex.getMessage(), true);
+                Reply(request, response, "/Profile/Profile.jsp", "Erreur Interne du Serveur: " + ex.getMessage(), "error");
             }
             break;
             //#####################################################################################################//

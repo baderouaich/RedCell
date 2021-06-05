@@ -109,8 +109,8 @@ and open the template in the editor.
 {
     background-color: #f55c47;
     color: white;
-    border-radius: 20%;
-    padding: 10px;
+    border-radius: 10%;
+    padding: 5px;
     font-size: 24px;
     font-weight: 900;
     margin: 5px;
@@ -122,11 +122,12 @@ and open the template in the editor.
 {
     cursor: pointer;
     padding: 20px;
+        font-size: 33px;
     transition: 500ms;
 }
 
 
-.profile-adresse, .profile-date-naissance, .profile-telephone
+.profile-region-ville, .profile-date-naissance, .profile-telephone
 {
     margin: 0 15px 0 15px;
     font-size: 16px;
@@ -186,6 +187,7 @@ and open the template in the editor.
 }
 .profile-modify-input-form input, select
 {
+    width: 250px;
     padding: 6px;
     font-size: 15px;
     border: 1px solid #aeaeae;
@@ -207,7 +209,9 @@ and open the template in the editor.
 
     align-self: baseline;
 }
-
+.profile-modify-disponible input[type="checkbox"]{
+    width: fit-content;
+}
 
 
 .buttons-container

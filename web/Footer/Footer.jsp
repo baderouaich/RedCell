@@ -18,6 +18,51 @@
 
     </head>
    
+   
+    
+    <body>
+        <footer>
+            <div class="footer-top">
+            
+              <div class="footer-top-items">
+                <h2>RedCell</h2>
+                <p class="website-description">
+                    RedCell est une site web qui facilite la procédure de recherche et de don de sang.<br>
+                    L’objectif principal de ce site est de faciliter le processus de recherche d'un donneur de sang et de gagner du temps en particulier dans les cas critiques où cela peut sauver des vies.
+                </p>
+               <!--
+                <h2>SUIVEZ NOUS</h2>
+                <a class="fab fa-facebook-f social-icon" href="https://www.facebook.com/"></a>
+                <a class="fab fa-twitter social-icon" href="http://www.twitter.com/"></a>
+                <a class="fab fa-instagram social-icon" href="http://www.instagram.com/"></a>
+                 -->
+              </div>
+               
+              <div class="footer-top-items">
+                <h2>LIENS UTILES</h2>
+                <ul>
+                  <li><a href="${pageContext.request.contextPath}/index.jsp">Acceuil</a></li>
+                  <li><a href="${pageContext.request.contextPath}/Prestataires/Prestataires.html">Prestataires</a></li>
+                  <li><a href="${pageContext.request.contextPath}/About/About.html">Qui sommes nous?</a></li>
+                  <li><a href="${pageContext.request.contextPath}/Contact/Contact.html">Contactez nous</a></li>
+                </ul>
+              </div>
+              <div class="footer-top-items">
+                <h2>RETROUVEZ-NOUS</h2>
+                  <i class="fa fa-map-pin icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;Boulevard Al Qods Sidi Maârouf 20190 Casablanca</span>
+                  <br>
+                  <br>
+                  <i class="fa fa-phone icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;+212 06 39 24 95 43</span>
+                  <br>
+                  <br>
+                  <i class="fa fa-envelope icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;ouaichbadereddine@gmail.com</span>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              © <% out.print(Calendar.getInstance().get(Calendar.YEAR)); %> RedCell All rights reserved.
+            </div>
+        </footer>
+    </body>
     
     <style type="text/css">
         /* ///////////////////////////=================== Theme.css which includes defaults =================//////////////////////////////////////////////// */
@@ -89,50 +134,5 @@
         /* FOOTER END */
 
     </style>
-    
-    <body>
-        <footer>
-            <div class="footer-top">
-            
-              <div class="footer-top-items">
-                <h2>RedCell</h2>
-                <p class="website-description">
-                    RedCell est une site web qui facilite la procédure de recherche et de don de sang.<br>
-                    L’objectif principal de ce site est de faciliter le processus de recherche d'un donneur de sang et de gagner du temps en particulier dans les cas critiques où cela peut sauver des vies.
-                </p>
-               <!--
-                <h2>SUIVEZ NOUS</h2>
-                <a class="fab fa-facebook-f social-icon" href="https://www.facebook.com/"></a>
-                <a class="fab fa-twitter social-icon" href="http://www.twitter.com/"></a>
-                <a class="fab fa-instagram social-icon" href="http://www.instagram.com/"></a>
-                 -->
-              </div>
-               
-              <div class="footer-top-items">
-                <h2>LIENS UTILES</h2>
-                <ul>
-                  <li><a href="${pageContext.request.contextPath}/index.jsp">Acceuil</a></li>
-                  <li><a href="${pageContext.request.contextPath}/Prestataires/Prestataires.html">Prestataires</a></li>
-                  <li><a href="${pageContext.request.contextPath}/About/About.html">Qui sommes nous?</a></li>
-                  <li><a href="${pageContext.request.contextPath}/Contact/Contact.html">Contactez nous</a></li>
-                </ul>
-              </div>
-              <div class="footer-top-items">
-                <h2>RETROUVEZ-NOUS</h2>
-                  <i class="fa fa-map-pin icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;Boulevard Al Qods Sidi Maârouf 20190 Casablanca</span>
-                  <br>
-                  <br>
-                  <i class="fa fa-phone icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;+212 06 39 24 95 43</span>
-                  <br>
-                  <br>
-                  <i class="fa fa-envelope icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;ouaichbadereddine@gmail.com</span>
-              </div>
-            </div>
-            <div class="footer-bottom">
-              © <% out.print(Calendar.getInstance().get(Calendar.YEAR)); %> RedCell All rights reserved.
-            </div>
-        </footer>
-    </body>
-    
-   
-  </html>
+
+</html>

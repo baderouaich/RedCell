@@ -19,7 +19,7 @@ CREATE SEQUENCE ID_COUNTER START WITH 1 INCREMENT BY 1;
 DROP TABLE Donneur;
 CREATE TABLE Donneur
 (
-	id NUMBER PRIMARY KEY,
+    id NUMBER PRIMARY KEY,
     prenom VARCHAR2(20) NOT NULL,
     nom VARCHAR2(20) NOT NULL,
     ville VARCHAR2(30) NOT NULL,
@@ -51,4 +51,3 @@ SELECT * FROM DONNEUR;
 DELETE FROM Donneur;
 
 update donneur set disponible = 'oui' where id = 3;
-

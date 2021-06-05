@@ -3,13 +3,14 @@
     Created on : Jun 2, 2021, 4:59:13 PM
     Author     : bader
 --%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Backend.Connexion"%>
 <%
     // If Donor is already logged in, send him/her to Acceuil Page, not need to register when u are already logged 
-    if(session.getAttribute("id") != null &&
-       session.getAttribute("prenom") != null &&
-       session.getAttribute("nom") != null)
+    if(session.getAttribute("id_donneur") != null)
     {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
+        return;
     }
 %>
 
@@ -25,8 +26,22 @@
 
         <title>Register</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Register/Register.css"/>
+        
+        <!-- Libraries BEGIN -->
+        <link rel="stylesheet"  href="${pageContext.request.contextPath}/Libraries/font-awesome/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/jquery/jquery-3.6.0.min.js"></script>
+        <!-- Libraries END -->
 
+        <!-- Default Scripts BEGIN -->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
+        <!-- Default Scripts END -->
     </head>
+    
+    <script>
+        var selected_region = 1;
+        
+    </script>
+    
     <body class="background-image">
 
         <%@include file="../Header/Header.jsp" %>
@@ -37,18 +52,17 @@
         <div class="container">
 
             <form action="${pageContext.request.contextPath}/Authentication" method="POST" class="register-form">
-                <!-- Error Messages from Authentication Servlet BEGIN -->
+                <!-- Alert Messages from Servlet BEGIN -->
                 <%
                     if(request.getAttribute("message") != null)
                     {%>
-                    <div class="message-error">
-                        <%= request.getAttribute("message") %>
-                    </div>
+                        <div class=<%= "message-"+request.getAttribute("type")%> style="width: fit-content">
+                            <%= request.getAttribute("message") %>
+                        </div>
                     <%}
-                %>                 
-                <!-- Error Messages from Authentication Servlet END -->
-
-                
+                  %>                 
+                <!-- Alert Messages from Servlet END -->
+                     
                 <h1 class="title">S'inscrire</h1>
                 <hr style="width: 100%;">
 
@@ -67,32 +81,36 @@
                     <label>Nom<span style="color:red;">*</span> :</label>
                     <input type="text" name="nom" placeholder="Nom..." required/>
                 </div>
-
+                
+                    
                 <div class="input-form">
                     <label>Ville<span style="color:red;">*</span> :</label>
-                    <input type="text" name="ville" placeholder="Ville..." required/>
-                </div>
-
-                <div class="input-form">
-                    <label>Adresse<span style="color:red;">*</span> :</label>
-                    <input type="text" name="adresse" placeholder="Adresse..." required/>
-                    <!--<textarea rows="5" cols="10" name="adresse" placeholder="Adresse..." required></textarea>-->
-
-                </div>
-
-                <div class="input-form">
-                    <label>Groupe Sanguin<span style="color:red;">*</span> :</label>
-                    <select name="groupe_sanguin">
-                        <option value="O+" selected>O+</option>
-                        <option value="O-">O-</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
+                    <select name="id_ville" required>
+                           <%
+                               // Get vills of selected region above
+                               final ResultSet villes = Connexion.Seconnecter().createStatement().executeQuery("SELECT DISTINCT id_ville, ville FROM Ville ORDER BY ville ASC");
+                               while(villes.next())
+                               {%>
+                                        <option value=<%="'"+villes.getObject(1)+"'"%>><%= villes.getObject(2) %></option>
+                               <%}
+                           %>
                     </select>
                 </div>
+                
+       
+                <div class="input-form">
+                    <label>Groupe Sanguin<span style="color:red;">*</span> :</label>
+                    <select name="id_groupe_sanguin" required>
+                           <%
+                               final ResultSet groupe_sanguines = Connexion.Seconnecter().createStatement().executeQuery("SELECT DISTINCT id_groupe_sanguin, groupe_sanguin FROM GroupeSanguin ORDER BY groupe_sanguin ASC");
+                               while(groupe_sanguines.next())
+                               {%>
+                                        <option value=<%="'"+groupe_sanguines.getObject(1)+"'"%>> <%= groupe_sanguines.getObject(2) %> </option>
+                               <%}
+                           %>
+                    </select>
+                </div>
+                    
 
                 <div class="input-form">
                     <label>Date de Naissance<span style="color:red;">*</span> :</label>

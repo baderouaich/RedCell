@@ -13,85 +13,114 @@ and open the template in the editor.
 /* ///////////////////////////=======================================================================//////////////////////////////////////////////// */
 
 
-.background-image
+/*body
 {
-    width: 100%; 
-    height: 100%;
-    /*background-image: url('./../Resources/Images/AcceuilBackground.jpg');*/
-    background-image: url('./../Resources/Images/undraw_medical_care_movn.png');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat; 
-    background-attachment: fixed;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}*/
 
 .container
 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;   
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   margin: 20px;   
+   padding: 30px;
+   background-color: transparent;
 }
 
-
-.login-form
+.left
 {
+    width: 600px;
+    height: 480px;
     min-width: 300px;
-    background-color: var(--color-background);
-    width: 33%;
-    padding: 45px;
-    margin: 66px;
-    border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    border-radius: 20px 0 0 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin-top: 10px;
 }
 
+.right
+{
+    width: 600px;
+    height: 480px;
+    min-width: 350px;
+    background-color: whitesmoke;
+    border-radius: 0 20px 20px 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.right img
+{
+    width: 280px;
+}
 
 .title
 {
     font-size: 33px;
-    text-align: center;
+    text-align: left;
     color: var(--color-accent);
+    padding: 10px;
+    margin-top: 5px;
 }
 
 .input-form
 {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-.input-form input, select {
-    width: 250px;
-    height: 33px;
-    border: 1px solid var(--color-accent);
-    border-radius: 3px;
-}
-.input-form label
-{
-    width: 150px;
-    font-weight: 100;
+    flex-direction: column;
+    margin: 25px 0 0 15px;
+    color: var(--color-accent);
+    font-size: 20px;
 }
 
-.login-button
+.input-form input
 {
     width: 250px;
     height: 36px;
-   /* border: 1px solid var(--color-primary); */
-    border-radius: 6px;
-    background-color: var(--color-accent);
-    color: whitesmoke;
-    margin-top: 30px;
-    font-size: 15px;
+    border: 1px solid #dddddd;
 }
-.login-button:hover{
-    background-color: var(--color-primary);
+
+.input-form label
+{
+    margin-bottom: 5px;
+}
+
+.input-form-button input
+{
+    width: 250px;
+    height: 36px;
+    border: 0;
+    margin: 30px 15px 15px 15px;
     color: white;
-    cursor: pointer;
+    font-size: 18px;
+    background-color: var(--color-accent);
 }
+
+.input-form-button input:hover
+{
+    cursor: pointer;
+    background-color: var(--color-primary);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.register-hint
+{
+    color: grey;
+    margin-top: 20px;
+}
+
+.register-hint a
+{
+    text-decoration: none;
+    color: #1768ac;
+}
+

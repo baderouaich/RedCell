@@ -1,7 +1,7 @@
 - geometry background image for all pages
 - maybe admin table who can manage donors?
 - allow donor to delete account permanantly in profile
-
+- sendRedirect from Register to Login on success with ?& values message to alert registration success
 
 O positive: 35%
 O negative: 13%
@@ -11,3 +11,18 @@ B positive: 8%
 B negative: 2%
 AB positive: 2%
 AB negative: 1%
+
+
+
+
+
+
+- Footer DONE
+- Header DONE
+- About 
+- Login DONE
+- Register DONE
+- Profile DONE
+- Chercher
+- ViewDonor
+- Accueil index (maybe show cards of each city or region and how many available donors there)

@@ -26,7 +26,10 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/jquery/jquery-3.6.0.min.js"></script>
         <!-- Libraries END -->
 
-        
+        <!-- Default Scripts BEGIN -->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
+        <!-- Default Scripts END -->
+
     </head>
     <body class="background-image">
         
@@ -37,7 +40,7 @@
             ResultSet  R = Connexion.Seconnecter().createStatement().executeQuery("SELECT * FROM Donneur");
             while(R.next())
             {
-                out.print("<p>" + R.getObject("id") + " " + R.getObject("prenom") + "</p>");
+                out.print("<p>" + R.getObject("id_donneur") + " " + R.getObject("prenom") + "</p>");
             }
          
 

@@ -5,8 +5,7 @@
 --%>
 <%
     // If Donor is already logged in, send him/her to Acceuil Page, not need to login when u already are logged in.
-    if(session.getAttribute("id") != null && session.getAttribute("prenom") != null &&
-       session.getAttribute("nom") != null)
+    if(session.getAttribute("id_donneur") != null)
     {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
         return;
@@ -25,55 +24,70 @@
         <title>Login</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Login/Login.css"/>
         
+        <!-- Libraries BEGIN -->
+        <link rel="stylesheet"  href="${pageContext.request.contextPath}/Libraries/font-awesome/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/jquery/jquery-3.6.0.min.js"></script>
+        <!-- Libraries END -->
+
+        <!-- Default Scripts BEGIN -->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
+        <!-- Default Scripts END -->
     </head>
-    <body class="background-image">
+    <body>
         
         <%@include file="../Header/Header.jsp" %>
 
-        
-        
+       
         
         <div class="container">
             
-            <form action="../Authentication" method="POST" class="login-form">
-                <!-- Error Messages from Authentication Servlet BEGIN -->
-                <%
-                    if(request.getAttribute("message") != null)
-                    {%>
-                    <div class="message-error">
-                        <%= request.getAttribute("message") %>
+            
+           <img  class="left" src="${pageContext.request.contextPath}/Resources/Images/undraw_gifts_btw0.png" alt="RedCell"/>
+
+
+            <div class="right">
+                <form action="${pageContext.request.contextPath}/Authentication" method="POST" >
+
+                    <!-- Alert Messages from Servlet BEGIN -->
+                    <%
+                        if(request.getAttribute("message") != null)
+                        {%>
+                            <div class=<%= "message-"+request.getAttribute("type")%> style="width: fit-content">
+                                <%= request.getAttribute("message") %>
+                            </div>
+                        <%}
+                      %>                 
+                    <!-- Alert Messages from Servlet END -->
+
+
+                    <img src="${pageContext.request.contextPath}/Resources/Images/LogoDark.png" alt="RedCell"/>
+                    <div class="title">
+                        Connectez-vous à votre compte 
                     </div>
-                    <%}
-                %>                 
-                <!-- Error Messages from Authentication Servlet END -->
-                
-                
-                 <h1 class="title">Connexion</h1>
-                 <hr style="width: 100%;">
-                 <br>
-                
-                
-                <div class="input-form">
-                    <label>Email<span style="color:red;">*</span> :</label>
-                    <input type="email" name="email"  placeholder="Email..." required/>
-                </div>
 
-                <div class="input-form">
-                    <label>Mot de passe<span style="color:red;">*</span> :</label>
-                    <input type="password" name="password"  placeholder="Mot de passe..." required/>
-                </div>
-                
-                
-                <input class="login-button" type="submit" name="operation" value="Connexion"/>
+                    <div class="input-form">
+                       <label>Email:</label>
+                       <input type="email" name="email" placeholder="Email..." required/>
+                    </div>
 
-            </form>
+                    <div class="input-form">
+                        <label>Mot de passe:</label>
+                        <input type="password" name="password" placeholder="Mot de passe..." required/>
+                    </div>
+
+                     <div class="input-form-button">
+                        <input type="submit" name="operation" value="Connexion" />
+                    </div>
+
+                    <div class="register-hint">
+                        Vous n'avez pas de compte ? <a href="${pageContext.request.contextPath}/Register/Register.jsp"> Inscrivez-vous ici</a>
+                    </div>
+                </form>
+            </div>
 
         </div>
-        
-        
-        
-        
+                
+                
         <%@include file="../Footer/Footer.jsp" %>
-        
     </body>
 </html>

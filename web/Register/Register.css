@@ -47,7 +47,6 @@ and open the template in the editor.
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
 .title
@@ -57,21 +56,21 @@ and open the template in the editor.
     color: var(--color-accent);
 }
 
+
 .description
 {
     color: white;
     font-size: 18px;
     font-weight: 300;
-    
-    border: 1px solid var(--color-accent);
-    border-radius: 6px;
+    border: 1px solid #000046;
+    border-radius: 3px;
     padding: 10px;
-    background-color: var(--color-primary);
-    /*background-image: url("./../Resources/Images/DefaultBackground.jpg");*/
+    background-image: url("./../Resources/Images/DefaultBackground.jpg");
    
     background-size: cover;
     background-position: center center;
 }
+
 .description span
 {
     color: linen;

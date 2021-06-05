@@ -13,11 +13,26 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recherche</title>
+        <title>Recherche de donneurs</title>
+        
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Recherche/Recherche.css"/>
+        
+        <!-- Libraries BEGIN -->
+        <link rel="stylesheet"  href="${pageContext.request.contextPath}/Libraries/font-awesome/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/jquery/jquery-3.6.0.min.js"></script>
+        <!-- Libraries END -->
 
+        <!-- Default Scripts BEGIN -->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
+        <!-- Default Scripts END -->
     </head>
     <body>
-        <h1>Recherche</h1>
+        <%@include file="../Header/Header.jsp" %>
+
+        
+        <h1>Chercher</h1>
+        
+        
+        <%@include file="../Footer/Footer.jsp" %>
     </body>
 </html>

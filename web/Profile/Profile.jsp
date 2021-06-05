@@ -7,9 +7,7 @@
     /* Login Guard: to be placed above any protected page which requires login such as Profile.jsp*/
 
     // If Donor is not logged in, send him/her to Acceuil Page
-    if (session.getAttribute("id") == null
-            || session.getAttribute("prenom") == null
-            || session.getAttribute("nom") == null) 
+    if (session.getAttribute("id_donneur") == null) 
     {
         request.setAttribute("message", "Vous devez d'abord vous connecter pour accéder à votre profil");
         request.getRequestDispatcher("/Login/Login.jsp").forward(request, response);
@@ -36,38 +34,70 @@
         <title>Profile</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Profile/Profile.css"/>
 
-
+        <!-- Libraries BEGIN -->
+        <link rel="stylesheet"  href="${pageContext.request.contextPath}/Libraries/font-awesome/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/jquery/jquery-3.6.0.min.js"></script>
+        <!-- Libraries END -->
+        
+        <!-- Default Scripts BEGIN -->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
+        <!-- Default Scripts END -->
     </head>
 
 
+    
     <body>
         <%@include file="../Header/Header.jsp" %>
 
         <%            
-            if (session.getAttribute("id") == null)// extra check, just to make sure
+            if (session.getAttribute("id_donneur") == null)// extra check, just to make sure
             {
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
                 return;
             }
-            
-            // get doneur id stored in session
-            String id = session.getAttribute("id").toString();
+            /*    id_donneur NUMBER PRIMARY KEY,
+    prenom VARCHAR2(20) NOT NULL,
+    nom VARCHAR2(20) NOT NULL,
+    id_region NUMBER NOT NULL, -- ID Region
+    id_ville NUMBER NOT NULL, -- ID Ville
+    id_groupe_sanguin  NUMBER NOT NULL, -- ID Groupe Sanguin
+    date_naissance DATE NOT NULL,
+    telephone VARCHAR2(15) NOT NULL UNIQUE,
+    email VARCHAR2(128) NOT NULL UNIQUE,
+    password VARCHAR2(256) NOT NULL,
+    disponible VARCHAR2(3) DEFAULT 'oui',
+    */
+            // get donneur id stored in session
+            String id_donneur = session.getAttribute("id_donneur").toString();
 
-            String req = "SELECT * FROM Donneur WHERE id = " + id;
+            String req = "SELECT "+
+                "prenom," +
+                "nom,"+
+                "(SELECT region FROM Region WHERE id_region = d.id_region),"+
+                "(SELECT ville FROM Ville WHERE id_ville = d.id_ville),"+
+                "(SELECT groupe_sanguin FROM GroupeSanguin WHERE id_groupe_sanguin = d.id_groupe_sanguin),"+
+                "date_naissance,"+
+                "telephone,"+
+                "email,"+
+                "password,"+
+                "disponible"+
+                " FROM Donneur d  WHERE id_donneur = " + id_donneur;
+           // String req = "SELECT * FROM Donneur WHERE id_donneur = " + id_donneur;
             System.out.println(req);
+            
             ResultSet R = Connexion.Seconnecter().createStatement().executeQuery(req);
             R.next();
 
-            String prenom = R.getObject(2).toString();
-            String nom = R.getObject(3).toString();
+            String prenom = R.getObject(1).toString();
+            String nom = R.getObject(2).toString();
+            String region = R.getObject(3).toString();
             String ville = R.getObject(4).toString();
-            String adresse = R.getObject(5).toString();
-            String groupe_sanguin = R.getObject(6).toString();
-            String date_naissance = R.getObject(7).toString();
-            String telephone = R.getObject(8).toString();
-            String email = R.getObject(9).toString();
-            //String password =  R.getObject(10).toString(); no need
-            String disponible = R.getObject(11).toString();
+            String groupe_sanguin = R.getObject(5).toString();
+            String date_naissance = R.getObject(6).toString();
+            String telephone = R.getObject(7).toString();
+            String email = R.getObject(8).toString();
+            //String password =  R.getObject(9).toString(); no need
+            String disponible = R.getObject(10).toString();
 
         %>
 
@@ -103,8 +133,8 @@
                 <div class="divider"></div>
 
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">   
-                    <div class="profile-section-title">Adresse</div>
-                    <div class="profile-adresse"><%= ville%>, <%= adresse%></div>
+                    <div class="profile-section-title">Region - Ville</div>
+                    <div class="profile-region-ville"><%= region %> - <%= ville %></div>
                 </div>
 
                 <div class="divider"></div>
@@ -125,24 +155,16 @@
 
 
           <form class="right" action="${pageContext.request.contextPath}/MiseAJour" method="POST" onsubmit="return OnModifyFormSubmit();">
-            <!-- Error Messages from MiseAJour Servlet BEGIN -->
-            <%
-                if(request.getAttribute("message") != null)
-                {
-                    if((Boolean)request.getAttribute("isError"))
+                <!-- Alert Messages from Servlet BEGIN -->
+                <%
+                    if(request.getAttribute("message") != null)
                     {%>
-                    <div class="message-error" style="width: fit-content">
-                             <%= request.getAttribute("message") %>
-                        </div>
-                     <%}else{%>
-                        <div class="message-info" style="width: fit-content">
+                        <div class=<%= "message-"+request.getAttribute("type")%> style="width: fit-content">
                             <%= request.getAttribute("message") %>
                         </div>
-
-               <%}
-                }
-              %>                 
-            <!-- Error Messages from MiseAJour Servlet END -->
+                    <%}
+                  %>                 
+                <!-- Alert Messages from Servlet END -->
             
                 <div class="profile-modify-section">
                     <div class="profile-modify-input-form">
@@ -164,13 +186,22 @@
                     <div class="profile-modify-input-form">
                         <div style="display: flex; flex-direction: column;  justify-content: center;">   
                             <label>Ville: </label>
-                            <input type="text" name="ville" value=<%= "'" + ville + "'" %> placeholder="Ville..."/>
+                            <select name="id_ville" required>
+                                   <%
+                                       // Get vills of selected region above
+                                       final ResultSet villes = Connexion.Seconnecter().createStatement().executeQuery("SELECT DISTINCT id_ville, ville FROM Ville ORDER BY ville ASC");
+                                       while(villes.next())
+                                       {%>
+                                       <option value=<%="'"+villes.getObject(1)+"'"%>  <%= ville.equals(villes.getObject(2)) ? "selected" : null %>><%= villes.getObject(2) %></option>
+                                       <%}
+                                   %>
+                            </select>
                         </div>
                     </div>
                     <div class="profile-modify-input-form">
                         <div style="display: flex; flex-direction: column;  justify-content: center;">   
-                            <label>Adresse: </label>
-                            <input type="text" name="adresse" value=<%= "'" + adresse + "'" %> placeholder="Adresse..."/>
+                            <label>Region: </label>
+                            <input type="text" value=<%= "'" + region + "'" %> placeholder="Region..." readonly/><!-- ignored - disabled -->
                         </div>
                     </div>
                 </div>
@@ -180,22 +211,21 @@
                 <div class="profile-modify-section">
                     <div class="profile-modify-input-form">
                         <div style="display: flex; flex-direction: column;  justify-content: center;">   
-                            <label>Groupe Sanguin </label>
-                            <select name="groupe_sanguin">
-                                <option value="O+"  <%=  groupe_sanguin.equals("O+") ? "selected" : null %>>O+</option>
-                                <option value="O-"  <%=  groupe_sanguin.equals("O-") ? "selected" : null %>>O-</option>
-                                <option value="A+"  <%=  groupe_sanguin.equals("A+") ? "selected" : null %>>A+</option>
-                                <option value="A-"  <%=  groupe_sanguin.equals("A-") ? "selected" : null %>>A-</option>
-                                <option value="B+"  <%=  groupe_sanguin.equals("B+") ? "selected" : null %>>B+</option>
-                                <option value="B-"  <%=  groupe_sanguin.equals("B-") ? "selected" : null %>>B-</option>
-                                <option value="AB+" <%=  groupe_sanguin.equals("AB+") ? "selected" : null %>>AB+</option>
-                                <option value="AB-" <%=  groupe_sanguin.equals("AB-") ? "selected" : null %>>AB-</option>
+                            <label>Groupe Sanguin: </label>
+                            <select name="id_groupe_sanguin" required>
+                                   <%
+                                       final ResultSet groupe_sanguines = Connexion.Seconnecter().createStatement().executeQuery("SELECT DISTINCT id_groupe_sanguin, groupe_sanguin FROM GroupeSanguin ORDER BY groupe_sanguin ASC");
+                                       while(groupe_sanguines.next())
+                                       {%>
+                                       <option value=<%="'"+groupe_sanguines.getObject(1)+"'"%>  <%= groupe_sanguin.equals(groupe_sanguines.getObject(2)) ? "selected" : null %>> <%= groupe_sanguines.getObject(2) %> </option>
+                                       <%}
+                                   %>
                             </select>
                         </div>
                     </div>
                     <div class="profile-modify-input-form">
                         <div style="display: flex; flex-direction: column;  justify-content: center;">   
-                            <label>Date de Naissance </label>
+                            <label>Date de Naissance: </label>
                             <input type="date" name="date_naissance" value=<%= "'" + date_naissance + "'" %> placeholder="Date de naissance..."/>
                         </div>
                     </div>
@@ -207,13 +237,13 @@
                 <div class="profile-modify-section">
                     <div class="profile-modify-input-form">
                         <div style="display: flex; flex-direction: column;  justify-content: center;">   
-                            <label>Telephone </label>
+                            <label>Telephone: </label>
                             <input type="tel" name="telephone" value=<%= "'" + telephone + "'" %> placeholder="telephone..."/>
                         </div>
                     </div>
                     <div class="profile-modify-input-form">
                         <div style="display: flex; flex-direction: column;  justify-content: center;">   
-                            <label>Email </label>
+                            <label>Email: </label>
                             <input type="email" name="email" value=<%= "'" + email + "'" %> placeholder="Email..."/>
                         </div>
                     </div>
@@ -279,7 +309,7 @@
             {
                 let yes = confirm(`
                 !! ATTENTION !!
-                Êtes-vous sûr de vouloir supprimer votre compte de donateur? Nous effacerons définitivement toutes vos données de notre base de données.
+Êtes-vous sûr de vouloir supprimer votre compte de donateur? Nous effacerons définitivement toutes vos données de notre base de données.
                 ***CETTE ÉTAPE NE PEUT ÊTRE ANNULÉE****
                 `);
                 return yes;

@@ -15,9 +15,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/About/About.css"/>
-
+      
+        <!-- Default Scripts BEGIN -->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
+        <!-- Default Scripts END -->
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="../Header/Header.jsp" %>
+
+        
+        <h1>About</h1>
+        
+        
+        <%@include file="../Footer/Footer.jsp" %>
     </body>
 </html>
