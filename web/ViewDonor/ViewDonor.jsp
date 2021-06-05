@@ -45,7 +45,7 @@ On click at donor in search result, visitor will be sent here with request attri
     </head>
 
 
-    <body>
+    <body class="background-image">
         <%@include file="../Header/Header.jsp" %>
 
         <%          

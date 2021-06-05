@@ -50,7 +50,7 @@
         
         
         <div class="container">
-
+                           
             <form action="${pageContext.request.contextPath}/Authentication" method="POST" class="register-form">
                 <!-- Alert Messages from Servlet BEGIN -->
                 <%
@@ -62,9 +62,10 @@
                     <%}
                   %>                 
                 <!-- Alert Messages from Servlet END -->
-                     
-                <h1 class="title">S'inscrire</h1>
+                <img src="${pageContext.request.contextPath}/Resources/Images/LogoDark.png" alt="RedCell" width="256px"/>
                 <hr style="width: 100%;">
+
+                <div class="title">S'inscrire</div>
 
                 <p class="description">
                     Vous voulez sauver des vies ? inscrivez-vous pour devenir donateur !<br>
@@ -134,6 +135,7 @@
                 </div>
 
                 
+                    
                 <input class="register-button" type="submit" name="operation" value="S'inscrire"/>
                
                 

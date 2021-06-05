@@ -13,13 +13,6 @@ and open the template in the editor.
 /* ///////////////////////////=======================================================================//////////////////////////////////////////////// */
 
 
-/*body
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}*/
 
 .container
 {
@@ -29,43 +22,46 @@ and open the template in the editor.
    justify-content: center;
    align-items: center;
    flex-wrap: wrap;
-   margin: 20px;   
    padding: 30px;
    background-color: transparent;
+   
+   background-image: url('./../Resources/Images/DefaultBackground.jpg');
+   background-size: cover;
+   background-position: center center;
+   background-repeat: no-repeat; 
+   background-attachment: fixed; 
+
 }
 
 .left
 {
-    width: 600px;
-    height: 480px;
+    width: 680px;
+    height: fit-content;
     min-width: 300px;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat; 
     border-radius: 20px 0 0 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    margin-top: 10px;
+    margin: 30px 0 30px 0;
 }
 
 .right
 {
     width: 600px;
-    height: 480px;
+    height: fit-content;
     min-width: 350px;
     background-color: whitesmoke;
     border-radius: 0 20px 20px 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     padding: 20px;
-    margin-top: 10px;
+    margin: 30px 0 30px 0;
 }
 
-.right img
-{
-    width: 280px;
-}
 
 .title
 {
+    width: 100%;
     font-size: 33px;
     text-align: left;
     color: var(--color-accent);

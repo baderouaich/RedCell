@@ -17,12 +17,13 @@ and open the template in the editor.
 {
    width: 100%; 
    height: 100%;
-   /*background-image: url('./../Resources/Images/AcceuilBackground.jpg');*/
-   background-image: url('./../Resources/Images/undraw_gifts_btw0.png');
+   background-image: url('./../Resources/Images/DefaultBackground.jpg');
    background-size: cover;
    background-position: center center;
    background-repeat: no-repeat; 
-   background-attachment: fixed;  
+   background-attachment: fixed; 
+   
+   /*background-color: var(--color-background);*/
 }
 
 .container
@@ -51,14 +52,24 @@ and open the template in the editor.
 
 .title
 {
+    width: 100%;
     font-size: 33px;
-    text-align: center;
+    text-align: left;
     color: var(--color-accent);
+    padding: 10px;
+    margin-top: 5px;
 }
 
 
 .description
 {
+    background-color: #dddddd;
+     border-radius: 6px;
+    padding: 6px;
+    border: 1px solid grey;
+    color: var(--color-accent);
+    
+ /*   
     color: white;
     font-size: 18px;
     font-weight: 300;
@@ -69,11 +80,12 @@ and open the template in the editor.
    
     background-size: cover;
     background-position: center center;
+ */
 }
 
 .description span
 {
-    color: linen;
+    color: dimgray;
     font-size: 14px;
     font-weight: 100;
 }
@@ -110,23 +122,23 @@ and open the template in the editor.
 }
 
 
-.register-button
+
+.register-button 
 {
     width: 250px;
     height: 36px;
-   /* border: 1px solid var(--color-primary); */
-    border-radius: 6px;
-    background-color: var(--color-accent);
-    color: whitesmoke;
-    margin-top: 30px;
-    font-size: 15px;
-}
-
-.register-button:hover{
-    background-color: var(--color-primary);
+    border: 0;
+    margin: 30px 15px 15px 15px;
     color: white;
-    cursor: pointer;
+    font-size: 18px;
+    background-color: var(--color-accent);
 }
 
+.register-button:hover
+{
+    cursor: pointer;
+    background-color: var(--color-primary);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
 
 

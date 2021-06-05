@@ -46,7 +46,7 @@
 
 
     
-    <body>
+    <body class="background-image">
         <%@include file="../Header/Header.jsp" %>
 
         <%            

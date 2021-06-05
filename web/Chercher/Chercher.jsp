@@ -26,7 +26,7 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
         <!-- Default Scripts END -->
     </head>
-    <body>
+    <body class="background-image">
         <%@include file="../Header/Header.jsp" %>
 
         

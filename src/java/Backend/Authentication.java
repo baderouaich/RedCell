@@ -119,7 +119,7 @@ public class Authentication extends HttpServlet {
                     // Check if user already has an account with same email
                     if(isDonorAlreadyExists(email))
                     {
-                        Reply(request, response, "/Register/Register.jsp", "L'utilisateur avec le même e-mail déjà existe", "warn");
+                        Reply(request, response, "/Register/Register.jsp", "Utilisateur avec le même e-mail déjà existe", "warn");
                         return;
                     }
                     

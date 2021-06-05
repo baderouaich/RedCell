@@ -2,6 +2,7 @@
 - maybe admin table who can manage donors?
 - allow donor to delete account permanantly in profile
 - sendRedirect from Register to Login on success with ?& values message to alert registration success
+- add github icon to contact socials
 
 O positive: 35%
 O negative: 13%

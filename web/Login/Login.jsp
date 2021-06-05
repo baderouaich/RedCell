@@ -33,7 +33,7 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
         <!-- Default Scripts END -->
     </head>
-    <body>
+    <body class="background-image">
         
         <%@include file="../Header/Header.jsp" %>
 
@@ -60,8 +60,10 @@
                     <!-- Alert Messages from Servlet END -->
 
 
-                    <img src="${pageContext.request.contextPath}/Resources/Images/LogoDark.png" alt="RedCell"/>
-                    <div class="title">
+                    <img src="${pageContext.request.contextPath}/Resources/Images/LogoDark.png" alt="RedCell" width="256px"/>
+                    <hr style="width: 100%;">
+
+                <div class="title">
                         Connectez-vous à votre compte 
                     </div>
 

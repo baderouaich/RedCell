@@ -14,15 +14,15 @@ and open the template in the editor.
 /* ///////////////////////////=======================================================================//////////////////////////////////////////////// */
 
 
-
 .background-image
 {
    width: 100%; 
    height: 100%;
-   /*background-image: url('Resources/Images/AcceuilBackground.jpg');*/
-   background-color: var(--color-background);
+   background-image: url('Resources/Images/DefaultBackground.jpg');
    background-size: cover;
    background-position: center center;
    background-repeat: no-repeat; 
-   background-attachment: fixed;
+   background-attachment: fixed; 
+   
+   /*background-color: var(--color-background);*/
 }
