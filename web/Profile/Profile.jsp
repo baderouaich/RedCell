@@ -55,21 +55,12 @@
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
                 return;
             }
-            /*    id_donneur NUMBER PRIMARY KEY,
-    prenom VARCHAR2(20) NOT NULL,
-    nom VARCHAR2(20) NOT NULL,
-    id_region NUMBER NOT NULL, -- ID Region
-    id_ville NUMBER NOT NULL, -- ID Ville
-    id_groupe_sanguin  NUMBER NOT NULL, -- ID Groupe Sanguin
-    date_naissance DATE NOT NULL,
-    telephone VARCHAR2(15) NOT NULL UNIQUE,
-    email VARCHAR2(128) NOT NULL UNIQUE,
-    password VARCHAR2(256) NOT NULL,
-    disponible VARCHAR2(3) DEFAULT 'oui',
-    */
+            
             // get donneur id stored in session
             String id_donneur = session.getAttribute("id_donneur").toString();
 
+            /*
+            Method 1:
             String req = "SELECT "+
                 "prenom," +
                 "nom,"+
@@ -82,22 +73,23 @@
                 "password,"+
                 "disponible"+
                 " FROM Donneur d  WHERE id_donneur = " + id_donneur;
-           // String req = "SELECT * FROM Donneur WHERE id_donneur = " + id_donneur;
+            */
+            String req = "SELECT * FROM Donneur NATURAL JOIN Region NATURAL JOIN Ville NATURAL JOIN GroupeSanguin WHERE id_donneur = " + id_donneur;
             System.out.println(req);
             
             ResultSet R = Connexion.Seconnecter().createStatement().executeQuery(req);
             R.next();
 
-            String prenom = R.getObject(1).toString();
-            String nom = R.getObject(2).toString();
-            String region = R.getObject(3).toString();
-            String ville = R.getObject(4).toString();
-            String groupe_sanguin = R.getObject(5).toString();
-            String date_naissance = R.getObject(6).toString();
-            String telephone = R.getObject(7).toString();
-            String email = R.getObject(8).toString();
+            String prenom = R.getObject("prenom").toString();
+            String nom = R.getObject("nom").toString();
+            String region = R.getObject("region").toString();
+            String ville = R.getObject("ville").toString();
+            String groupe_sanguin = R.getObject("groupe_sanguin").toString();
+            String date_naissance = R.getObject("date_naissance").toString();
+            String telephone = R.getObject("telephone").toString();
+            String email = R.getObject("email").toString();
             //String password =  R.getObject(9).toString(); no need
-            String disponible = R.getObject(10).toString();
+            String disponible = R.getObject("disponible").toString();
 
         %>
 
@@ -107,7 +99,7 @@
         <div class="container">
             <!-- Left part contains all doneur info, will be shown to visitor and profile owner -->
             <div class="left">
-                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-image"/>
+                <img src="${pageContext.request.contextPath}/Resources/Images/DefaultProfileImage.png" class="profile-image"/>
 
 
                 <div class="profile-full-name-container">
@@ -272,7 +264,7 @@
                 <div class="profile-modify-input-form">
                     <div class="profile-modify-input-form">
                         <div style="display: flex; flex-direction: row; flex-wrap: wrap;  justify-content: space-around;">  
-                            <label>Si vous n'êtes pas prêt à recevoir des demandes de don de sang pour le moment, vous pouvez modifier votre statut entre disponible et indisponible:</label>
+                            <label>Si vous n'êtes pas prêt à apparaître dans les résultats de recherche et à recevoir des demandes de don de sang pour le moment, vous pouvez changer votre statut de disponible à non disponible:</label>
                             <div class="profile-modify-disponible">Disponible: <input type="checkbox" name="disponible" value=<%= "'" + disponible + "'" %> <%= disponible.equals("oui") ? "checked" : null %>></div>
                         </div>
                     </div>

@@ -168,7 +168,8 @@ CREATE TABLE Donneur
                    if(r != 0)
                    {
                         // Donor successfully registered, Send him/her to login page. 
-                        response.sendRedirect("Login/Login.jsp");
+                        //response.sendRedirect("Login/Login.jsp");
+                        Reply(request, response, "/Login/Login.jsp", "Compte créé avec succès ! Veuillez vous connecter", "info");
                    }
                    else // Failed to insert doneur to database
                    {

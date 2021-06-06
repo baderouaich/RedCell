@@ -3,7 +3,7 @@
 - allow donor to delete account permanantly in profile
 - sendRedirect from Register to Login on success with ?& values message to alert registration success
 - add github icon to contact socials
-
+- ensure project works offline (libs)
 O positive: 35%
 O negative: 13%
 A positive: 30%
@@ -24,6 +24,10 @@ AB negative: 1%
 - Login DONE
 - Register DONE
 - Profile DONE
-- Chercher
+- Chercher ( where disponible="oui" )  and maybe where session.id_donneur != id_donneur
 - ViewDonor
-- Accueil index (maybe show cards of each city or region and how many available donors there)
+- Accueil index (maybe show cards of each city or region and how many available donors there, and total donors available now)
+
+
+
+advantages in using Region & Ville tables are: we'l have to deal with ids instead of values who may have special characters due french language..
