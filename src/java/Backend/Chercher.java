@@ -81,14 +81,19 @@ public class Chercher extends HttpServlet {
             String id_ville = request.getParameter("id_ville");
             String id_groupe_sanguin = request.getParameter("id_groupe_sanguin");
             
-            String req = "SELECT prenom, nom, region, ville, groupe_sanguin FROM Donneur d JOIN Region r on d.id_region = d.id_region JOIN Ville v ON v.id_ville = d.id_ville JOIN GroupeSanguin g on g.id_groupe_sanguin = d.id_groupe_sanguin  WHERE disponible = 'oui' ";
+            System.out.println("id_region" +id_region);
+            System.out.println("id_ville" +id_ville);
+            System.out.println("id_groupe_sanguin" +id_groupe_sanguin);
+            
+            String req = "SELECT prenom, nom, (SELECT region FROM Region WHERE id_region = d.id_region) as region, (SELECT ville FROM Ville WHERE id_ville = d.id_ville) as ville, (SELECT groupe_sanguin FROM GroupeSanguin WHERE id_groupe_sanguin = d.id_groupe_sanguin) as groupe_sanguin FROM Donneur d WHERE disponible = 'oui'";
+            //String req = "SELECT prenom, nom, region, ville, groupe_sanguin FROM Donneur d JOIN Region r on d.id_region = d.id_region JOIN Ville v ON v.id_ville = d.id_ville JOIN GroupeSanguin g on g.id_groupe_sanguin = d.id_groupe_sanguin  WHERE disponible = 'oui' ";
             if(!id_ville.isEmpty())
                 req += " AND id_ville = " + id_ville;
             else if(!id_region.isEmpty() && id_ville.isEmpty()) // search either by ville or region, not both at the same time
                 req += " AND id_region = " + id_region;
             else if(!id_groupe_sanguin.isEmpty())
                 req += " AND id_groupe_sanguin = " + id_groupe_sanguin;
-            else // all empty
+            else // all empty 
             {
                 request.setAttribute("type", "warn");
                 request.setAttribute("message", "Au moins un critère de recherche doit être sélectionné");
@@ -106,7 +111,6 @@ public class Chercher extends HttpServlet {
             request.setAttribute("message", "Trouvé " +getResultSetSize(R)+" donateurs");
 
             request.getRequestDispatcher("/Chercher/Chercher.jsp").forward(request, response);
-                    
         } 
         catch (SQLException ex) 
         {
@@ -126,26 +130,7 @@ public class Chercher extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-       /* String libelle = request.getParameter("libelle");
-        String date_debut = request.getParameter("date_debut");
-        String date_fin = request.getParameter("date_fin");
-
-        String req = "SELECT * FROM Cours WHERE 1=1 ";
-        if (!libelle.isEmpty()) {
-            req += "AND lower(Libelle) = '" + libelle.toLowerCase() + "' ";
-        }
-        if (!date_debut.isEmpty()) {
-            req += "AND DateDebut = TO_DATE('" + date_debut + "', 'yyyy-mm-dd')"; //input type="data" returns date with format yyyy-mm-dd => 2021-06-15
-        }
-        if (!date_fin.isEmpty()) {
-            req += "AND DateFin = TO_DATE('" + date_fin + "', 'yyyy-mm-dd')";
-        }
-        System.out.println(req);
-
-        ResultSet R = Connexion.Seconnecter().createStatement().executeQuery(req);
-        request.setAttribute("resultat", R);
-        request.getRequestDispatcher("chercher_cours.jsp").forward(request, response);*/
+    
 
     }
 

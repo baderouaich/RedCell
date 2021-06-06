@@ -31,3 +31,10 @@ AB negative: 1%
 
 
 advantages in using Region & Ville tables are: we'l have to deal with ids instead of values who may have special characters due french language..
+
+
+- Table ContactMe id fullname message email 
+
+
+
+- namecheap github domain
