@@ -17,7 +17,8 @@ public class Connexion
     
     /*
     Best way to avoid error: 
-        java.sql.SQLException: Listener refused the connection with the following error: ORA-12519, TNS:no appropriate service handler found The Connection descriptor used by the client was: localhost:1521:xe
+        java.sql.SQLException: Listener refused the connection with the following error: ORA-12519,
+        TNS:no appropriate service handler found The Connection descriptor used by the client was: localhost:1521:xe
     is not to connect all the time to database, just once will do.
     */
     public static Connection Seconnecter()
@@ -38,7 +39,7 @@ public class Connexion
         {
             Logger.getLogger(Connexion.class.getName()).log(Level.SEVERE, null, ex);
             return null;
-        } 
+        }
     }
     /*
     public static Connection Seconnecter()
