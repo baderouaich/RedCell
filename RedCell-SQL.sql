@@ -679,14 +679,14 @@ COMMIT;
 select count(*) from Donneur;
 
 -- CLEANUP ENCODING --
-SELECT region FROM Region WHERE region like '%Â¿%'
+SELECT region FROM Region WHERE region like '%¿%'
 SELECT * FROM Donneur WHERE 
-nom like '%Â¿%' or
-prenom like '%Â¿%' or
-date_naissance like '%Â¿%' or
-telephone like '%Â¿%' or
-email like '%Â¿%' or
-disponible like '%Â¿%';
+nom like '%¿%' or
+prenom like '%¿%' or
+date_naissance like '%¿%' or
+telephone like '%¿%' or
+email like '%¿%' or
+disponible like '%¿%';
 ---
 
 

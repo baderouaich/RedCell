@@ -127,14 +127,18 @@
                             do
                             {
                               %>
-                               <div class="search-result-item">
+                              <div class="search-result-item">
                                    <img class="search-result-item-profile-image" src="${pageContext.request.contextPath}/Resources/Images/DefaultProfileImage.png" width="128px" alt="Profile picture"/>
                                    <div class="search-result-details">
                                        <div class="search-result-item-fullname"><%= R.getObject("prenom") + " " + R.getObject("nom") %></div>
                                         <div class="search-result-item-groupe-sanguin"><%= R.getObject("groupe_sanguin") %></div>
                                         <div class="search-result-item-region-ville"><%= "(" + R.getObject("region") + ") " + R.getObject("ville") %></div>
                                    </div>
-                                </div>
+                                    
+                                   <a class="search-result-item-view-donor fa fa-arrow-right" href=<%= request.getContextPath() + "/ViewDonor/ViewDonor.jsp?id_donneur=" + R.getObject("id_donneur")%> style="text-decoration: none;">
+                                     <!-- &nbsp; Voir Donneur-->
+                                    </a>
+                              </div>
                             <%}
                             while(R.next());
                         }

@@ -26,11 +26,10 @@ and open the template in the editor.
    
    /*background-color: var(--color-background);*/
 }
-
 .container
 {
     padding: 20px;
-    margin: 30px;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -39,51 +38,69 @@ and open the template in the editor.
     align-content: stretch;
 }
 
-.left
-{
-    width: 25%;
-}
-.right
+
+.donneur-details
 {
     width: 50%;
-}
-.left, .right
-{
-    min-width: 300px;
+    min-width: 350px;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    margin: 0 20px 10px 20px;
-    padding: 15px;
+
+    margin: 36px;
+    /*padding: 5px;*/
+
 }
 
+.donneur-details-header
+{
+    
+    /*width: 100%;
+    background-color: var(--color-accent);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px 10px 0 0;*/
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./../Resources/Images/PalleteBackgroud.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
 
-
+}
 .profile-image
 {
-  border-radius: 50%;
-  margin: 15px 15px 5px 15px;
+    border-radius: 50%;
+    margin: 15px 15px 3px 15px;
+    width: 200px;
 }
 
 .profile-full-name-container
 {
     display: flex;
-    color: var(--color-accent-dark);
-    font-size: 20px;
+    color: whitesmoke;
+    font-size: 24px;
     font-weight: 600;
-}
-
-.profile-email
-{
-    color: #aeaeae;
     margin: 5px;
+    text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
+    letter-spacing: .2rem;
+}   
 
-}
 
 .profile-disponible
 {
@@ -115,34 +132,37 @@ and open the template in the editor.
     font-size: 20px;
     font-weight: 600;
     color: #1768ac;
+    text-align: center;
 }
 .profile-groupe-sanguin
 {
     background-color: #f55c47;
     color: white;
-    border-radius: 50%;
-    padding: 6px;
+    border-radius: 10%;
+    padding: 5px;
     font-size: 24px;
     font-weight: 900;
     margin: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     transition: 500ms;
+    letter-spacing: .3rem;
 }
 .profile-groupe-sanguin:hover
 {
     cursor: pointer;
     padding: 20px;
+        font-size: 33px;
     transition: 500ms;
 }
 
 
-.profile-adresse, .profile-date-naissance, .profile-telephone
+.profile-region-ville, .profile-date-naissance, .profile-telephone, .profile-email
 {
     margin: 0 15px 0 15px;
     font-size: 16px;
     color: grey;
     padding: 10px;
-    
+
 }
 
 
