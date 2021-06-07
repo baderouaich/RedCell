@@ -193,7 +193,7 @@
                     <div class="profile-modify-input-form">
                         <div style="display: flex; flex-direction: column;  justify-content: center;">   
                             <label>Region: </label>
-                            <input type="text" value=<%= "'" + region + "'" %> placeholder="Region..." readonly/><!-- ignored - disabled -->
+                            <input type="text" value=<%= "'" + region + "'" %> placeholder="Region..." readonly disabled/><!-- ignored - disabled -->
                         </div>
                     </div>
                 </div>
