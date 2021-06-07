@@ -7,8 +7,13 @@
     // If Donor is already logged in, send him/her to Acceuil Page, not need to login when u already are logged in.
     if(session.getAttribute("id_donneur") != null)
     {
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
+        //response.sendRedirect(request.getContextPath() + "/index.jsp");
+
+        request.setAttribute("type", "warn");
+        request.setAttribute("message", "Pas besoin de se connecter, vous êtes déjà connecté.");
+        request.getRequestDispatcher("/Profile/Profile.jsp").forward(request, response);
         return;
+
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

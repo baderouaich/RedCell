@@ -35,22 +35,9 @@
         
         <%@include file="Header/Header.jsp" %>
         
-        
-        <%
-            ResultSet  R = Connexion.Seconnecter().createStatement().executeQuery("SELECT * FROM Donneur");
-            while(R.next())
-            {
-                out.print("<p>" + R.getObject("id_donneur") + " " + R.getObject("prenom") + "</p>");
-            }
-         
-
-            /*
-            request.setAttribute("id", "3");
-            request.getRequestDispatcher("/ViewDonor/ViewDonor.jsp").forward(request, response);
-            */
-        %> 
-            <h1>Hello World!</h1>
-        
+        <div class="container">
+            
+        </div>
         
         <%@include file="Footer/Footer.jsp" %>
 

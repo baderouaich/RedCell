@@ -9,6 +9,7 @@
     // If Donor is not logged in, send him/her to Acceuil Page
     if (session.getAttribute("id_donneur") == null) 
     {
+        request.setAttribute("type", "error");
         request.setAttribute("message", "Vous devez d'abord vous connecter pour accéder à votre profil");
         request.getRequestDispatcher("/Login/Login.jsp").forward(request, response);
         return;
@@ -50,14 +51,8 @@
         <%@include file="../Header/Header.jsp" %>
 
         <%            
-            if (session.getAttribute("id_donneur") == null)// extra check, just to make sure
-            {
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
-                return;
-            }
-            
             // get donneur id stored in session
-            String id_donneur = session.getAttribute("id_donneur").toString();
+            final String id_donneur = session.getAttribute("id_donneur").toString();
 
             /*
             Method 1:

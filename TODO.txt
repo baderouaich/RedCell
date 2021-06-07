@@ -24,16 +24,14 @@ AB negative: 1%
 - Login DONE
 - Register DONE
 - Profile DONE
-- Chercher ( where disponible="oui" )  and maybe where session.id_donneur != id_donneur
-- ViewDonor
+- Chercher DONE ( where disponible="oui" )  and maybe where session.id_donneur != id_donneur
+- ViewDonor DONE
 - Accueil index (maybe show cards of each city or region and how many available donors there, and total donors available now)
-
+- Contact US (maybe table ContactMessages id fullname message email )
 
 
 advantages in using Region & Ville tables are: we'l have to deal with ids instead of values who may have special characters due french language..
 
-
-- Table ContactMe id fullname message email 
 
 
 

@@ -32,11 +32,13 @@
                     <!-- Acceuil, always visible -->
                     <li><a href="${pageContext.request.contextPath}/index.jsp" id="${pageContext.request.requestURI.equals('/RedCell/index.jsp') ? 'active-tab' : ''}">Acceuil</a></li>
                    
-                    <!-- Chercher des donateurs, always visible -->
-                   <li><a href="${pageContext.request.contextPath}/Chercher/Chercher.jsp" id="${pageContext.request.requestURI.equals('/RedCell/Chercher/Chercher.jsp') ? 'active-tab' : ''}">Chercher des Donateurs</a></li>
                    
                     <!-- Qui Somme Nous ?, always visible -->
-                   <li><a href="${pageContext.request.contextPath}/About/About.jsp" id="${pageContext.request.requestURI.equals('/RedCell/About/About.jsp') ? 'active-tab' : ''}">Qui Somme Nous ?</a></li>
+                    <li><a href="${pageContext.request.contextPath}/About/About.jsp" id="${pageContext.request.requestURI.equals('/RedCell/About/About.jsp') ? 'active-tab' : ''}">Qui Somme Nous ?</a></li>
+
+                    
+                    <!-- Chercher des donateurs, always visible -->
+                    <li><a href="${pageContext.request.contextPath}/Chercher/Chercher.jsp" id="${(pageContext.request.requestURI.equals('/RedCell/Chercher/Chercher.jsp') || pageContext.request.requestURI.equals('/RedCell/ViewDonor/ViewDonor.jsp')) ? 'active-tab' : ''}">Chercher des Donateurs</a></li>
 
                     <%
                          final boolean isLoggedIn = session.getAttribute("id_donneur") != null;
@@ -77,10 +79,9 @@
             width: 100%;
             padding: 0px 33px;
             position: relative;
-            font-size: 16px;
             background-color: var(--color-primary);
-            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-        }
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;   
+       }
         .logo
         {
             float: left;
@@ -116,7 +117,7 @@
             transition: 300ms;
             border-radius: 6px;
         }
-        nav ul li a:hover
+        nav ul li a:hover, #active-tab
         {
             color: white;
             font-weight: 700;
@@ -131,7 +132,7 @@
         {
             color: white;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 18px;
 
         }
         .toggle-btn
