@@ -25,7 +25,8 @@
             <div class="footer-top">
             
               <div class="footer-top-items">
-                <h2>RedCell</h2>
+                <!--<h2>RedCell</h2>-->
+                <img src="${pageContext.request.contextPath}/Resources/Images/LogoLight.png" width="234">
                 <p class="website-description">
                     RedCell est une site web qui facilite la procédure de recherche et de don de sang.<br>
                     L’objectif principal de ce site est de faciliter le processus de recherche d'un donneur de sang et de gagner du temps en particulier dans les cas critiques où cela peut sauver des vies.
@@ -42,9 +43,20 @@
                 <h2>LIENS UTILES</h2>
                 <ul>
                   <li><a href="${pageContext.request.contextPath}/index.jsp">Acceuil</a></li>
-                  <li><a href="${pageContext.request.contextPath}/Prestataires/Prestataires.html">Prestataires</a></li>
-                  <li><a href="${pageContext.request.contextPath}/About/About.html">Qui sommes nous?</a></li>
-                  <li><a href="${pageContext.request.contextPath}/Contact/Contact.html">Contactez nous</a></li>
+                  <li><a href="${pageContext.request.contextPath}/Chercher/Chercher.jsp">Chercher des Donateurs</a></li>
+                  <li><a href="${pageContext.request.contextPath}/About/About.jsp">Qui sommes nous?</a></li>
+                  <%
+                      // if donor is logged in, show profile link
+                      if(session.getAttribute("id_donneur") != null)
+                      {%>
+                            <li><a href="${pageContext.request.contextPath}/Profile/Profile.jsp">Mon Profil</a></li>
+                      <%}
+                       else // otherwise, show register & login links
+                        {%>
+                            <li><a href="${pageContext.request.contextPath}/Login/Login.jsp">Connexion</a></li>
+                            <li><a href="${pageContext.request.contextPath}/Register/Register.jsp">Devenir Donateur? S'inscrire</a></li>
+                        <%}
+                  %>
                 </ul>
               </div>
               <div class="footer-top-items">

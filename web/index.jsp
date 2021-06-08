@@ -17,29 +17,88 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RedCell</title>
-        
+
         <!-- Style -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/index.css"/>
-                
-        <!-- Libraries BEGIN -->
-        <link rel="stylesheet"  href="${pageContext.request.contextPath}/Libraries/font-awesome/css/font-awesome.min.css"/>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/jquery/jquery-3.6.0.min.js"></script>
-        <!-- Libraries END -->
 
-        <!-- Default Scripts BEGIN -->
-        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
-        <!-- Default Scripts END -->
+        <!-- Libraries CSS BEGIN -->
+        <link rel="stylesheet"  href="${pageContext.request.contextPath}/Libraries/font-awesome/css/font-awesome.min.css"/>
+        <!-- Libraries CSS END -->
+
+
 
     </head>
+  
+    
     <body class="background-image">
-        
+
         <%@include file="Header/Header.jsp" %>
+
+
+
+        <!-- Carousel Slider BEGIN (items will be inserted with jQuery) -->
+        <div class="carousel" style="margin-top: 0px !important;">
+          
+        </div>
+        <!-- Carousel Slider END -->
+
+
         
-        <div class="container">
-            
+        
+        <div class="donors-by-region-container">
+            <div class="donors-by-region-container-title">Nombre de Donneurs disponibles en ce moment par région :</div>
+
+            <%
+                String req = "SELECT COUNT(d.id_donneur) as total, region FROM Donneur d NATURAL JOIN Region WHERE disponible = 'oui' GROUP BY region ORDER BY region ASC";
+                ResultSet R = Connexion.Seconnecter().createStatement().executeQuery(req);
+                while(R.next())
+                {%>
+                    <div class="donors-by-region-item">
+                        <div class="donors-by-region-item-title"><%= R.getString("region") %></div>
+                        <div class="divider"></div>
+                        <div class="donors-by-region-item-total"><%= R.getString("total") %> Donneurs</div>
+                    </div>
+                <%}
+            %>
         </div>
         
+        
+        
+        
+        
+        <% 
+            // if user is not logged in, ask him/her to register and become a donor
+           if(session.getAttribute("id_donneur") == null) 
+           {%>
+                <div class="become-donor-container">
+                    <div>Votre don de sang sauve des vies.</div>
+                    <a href="${pageContext.request.contextPath}/Register/Register.jsp">Devenez un donneur de sang et faites une différence</a>
+                </div>
+           <%}           
+         %>
+
         <%@include file="Footer/Footer.jsp" %>
 
+                
+        
+        <!-- Libraries JS BEGIN -->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/jquery/jquery-3.6.0.min.js"></script>
+        <!-- Slick (Carousel Slider Library) BEGIN -->
+        <!-- Add the slick-theme.css if you want default styling -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/Libraries/slick/slick.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/Libraries/slick/slick-theme.css"/>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Libraries/slick/slick.min.js"></script>
+        <!-- Slick (Carousel Slider Library) END -->
+        <!-- Libraries JS END -->
+        
+        <!-- Default Scripts BEGIN -->
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Carousel.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Alerts.js"></script>
+        <!-- Default Scripts END -->
+
     </body>
+
+    
+    
+    
 </html>

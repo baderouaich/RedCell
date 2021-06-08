@@ -18,7 +18,7 @@ and open the template in the editor.
 {
    width: 100%; 
    height: 100%;
-   background-image: url('Resources/Images/DefaultBackground.jpg');
+   background-image: url('./Resources/Images/DefaultBackground.jpg');
    background-size: cover;
    background-position: center center;
    background-repeat: no-repeat; 
@@ -28,4 +28,112 @@ and open the template in the editor.
 }
 
 
+.donors-by-region-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 50px 0 50px 0;
+    padding: 15px;
+    background-color: var(--color-accent);
+}
+.donors-by-region-container-title
+{
+    width: 100%;
+    font-size: 33px;
+    color: whitesmoke; 
+    padding: 10px; 
+    text-align: center;
+}
+.donors-by-region-item
+{
+    width: 36%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 10px;
+    padding: 20px;
+    background-color: var(--color-accent-dark);
+    color: whitesmoke;
+    border-radius: 10px;
+    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+}
 
+
+.donors-by-region-item-title
+{
+    font-size: 24px;
+    color: whitesmoke;
+    text-transform: uppercase;
+    padding: 10px;
+    
+}
+
+.donors-by-region-item-total
+{
+    font-size: 20px;
+    font-family: var(--font-family-light);
+    padding: 10px;
+    margin: 10px;
+    font-weight: 600;
+    color: white;
+    background: var(--color-accent2);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.divider
+{
+    width: 70%;
+    height: 1px;
+    margin: 5px;
+    background-color: #dddddd;
+}
+
+
+
+
+
+
+
+
+.become-donor-container 
+{
+    width: 100%;
+    background-color: var(--color-accent-dark);
+    color: whitesmoke;
+    text-align: center;
+    padding: 33px;
+    margin: 50px 0 0 0;
+    font-size: 30px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.become-donor-container a
+{
+    text-decoration: none;
+    background-color: var(--color-accent-dark);
+    color: var(--color-accent2);
+    margin: 20px;
+    border: 1px white solid;
+    padding: 15px;
+    font-size: 20px;
+    width: fit-content;
+}
+.become-donor-container a:hover
+{
+    background-color: var(--color-accent2);
+    color:  white;
+
+}

@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+"use strict";
 
 
 ///===================== JQuery script to hide any  message spawned after 10 seconds the page is loaded =====================///
@@ -18,3 +19,5 @@ $(document).ready(function()
     }, ALERT_MESSAGE_LIFE_TIME);
 });
 ///======================================================================================================================///
+
+

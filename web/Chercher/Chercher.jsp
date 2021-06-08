@@ -25,7 +25,7 @@
         <!-- Libraries END -->
 
         <!-- Default Scripts BEGIN -->
-        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Alerts.js"></script>
         <!-- Default Scripts END -->
     </head>
     <body class="background-image">

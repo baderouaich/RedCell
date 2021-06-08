@@ -45,7 +45,7 @@ On click at donor in search result, visitor will be sent here with request attri
         <!-- Libraries END -->
 
         <!-- Default Scripts BEGIN -->
-        <script type="text/javascript" src="${pageContext.request.contextPath}/Scripts.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Alerts.js"></script>
         <!-- Default Scripts END -->
     </head>
 
@@ -115,7 +115,7 @@ On click at donor in search result, visitor will be sent here with request attri
 
                     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">   
                         <div class="profile-section-title">Date de Naissance</div>
-                        <div class="profile-date-naissance"><%= date_naissance%></div>
+                        <div class="profile-date-naissance"><%= date_naissance %> (<%= Calendar.getInstance().get(Calendar.YEAR) - (java.sql.Date.valueOf(date_naissance).getYear() + 1900) %> ans)</div>
                     </div>
 
                     <div class="divider"></div>
