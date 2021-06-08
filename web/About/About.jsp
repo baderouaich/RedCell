@@ -24,7 +24,21 @@
         <%@include file="../Header/Header.jsp" %>
 
         
-        <h1>About</h1>
+        <div class="header-container">
+            Qui est Redcell ?
+        </div>
+        
+        
+        <div class="container">
+            
+            
+            <img class="left" src="${pageContext.request.contextPath}/Resources/Images/undraw_gifts_btw0.png" >
+            
+            <div class="right">
+                <div>
+                    RedCell est un projet de site web de fin d'études destiné à faciliter la procédure de recherche d'un donneur et de don de sang. Son principal objectif est d'accélérer la procédure de recherche d'un donneur et de pouvoir le contacter le plus rapidement possible, notamment dans les cas critiques.                </div>
+                </div>
+        </div>
         
         
         <%@include file="../Footer/Footer.jsp" %>

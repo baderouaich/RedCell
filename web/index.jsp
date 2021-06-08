@@ -37,7 +37,7 @@
 
 
         <!-- Carousel Slider BEGIN (items will be inserted with jQuery) -->
-        <div class="carousel" style="margin-top: 0px !important;">
+        <div class="carousel">
           
         </div>
         <!-- Carousel Slider END -->

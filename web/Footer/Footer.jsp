@@ -41,7 +41,7 @@
                
               <div class="footer-top-items">
                 <h2>LIENS UTILES</h2>
-                <ul>
+                <ul class="links-list">
                   <li><a href="${pageContext.request.contextPath}/index.jsp">Acceuil</a></li>
                   <li><a href="${pageContext.request.contextPath}/Chercher/Chercher.jsp">Chercher des Donateurs</a></li>
                   <li><a href="${pageContext.request.contextPath}/About/About.jsp">Qui sommes nous?</a></li>
@@ -61,13 +61,13 @@
               </div>
               <div class="footer-top-items">
                 <h2>RETROUVEZ-NOUS</h2>
-                  <i class="fa fa-map-pin icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;Boulevard Al Qods Sidi Maârouf 20190 Casablanca</span>
+                  <div class="row"><i class="fa fa-map-pin icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;Boulevard Al Qods Sidi Maârouf 20190 Casablanca</span></div>
                   <br>
                   <br>
-                  <i class="fa fa-phone icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;+212 06 39 24 95 43</span>
+                  <div class="row"><i class="fa fa-phone icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;+212 06 39 24 95 43</span></div>
                   <br>
                   <br>
-                  <i class="fa fa-envelope icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;ouaichbadereddine@gmail.com</span>
+                  <div><i class="fa fa-envelope icon" aria-hidden="true"></i><span>&nbsp;&nbsp;&nbsp;ouaichbadereddine@gmail.com</span></div>
               </div>
             </div>
             <div class="footer-bottom">
@@ -129,6 +129,8 @@
         .footer-top-items ul li a{
             text-decoration: none;
             color: whitesmoke;
+            transition: 500ms;
+
         }
         .icon{
             color: var(--color-primary);
@@ -143,6 +145,15 @@
             padding-right: 30px;
         }
       
+        .links-list a:hover
+        {
+            color: white;
+            font-size: 17px;
+            border: 1px white solid;
+            border-radius: 5px;
+            padding: 5px;
+            transition: 500ms;
+        }
         /* FOOTER END */
 
     </style>

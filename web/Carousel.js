@@ -1,8 +1,9 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+    Document   : Carousel
+    Created on : Jun 8, 2021, 6:02:15 PM
+    Author     : bader
+**/
+
 "use strict";
 
 ///========================================== Carousel slide elements data, each slide has title, description & image. ===========================================================///
@@ -33,8 +34,6 @@
 
 $(document).ready(function () 
 {
-    console.log("RedCell Ready!");
-
     // Insert elements into carousel div
     carousel_data.forEach((slide) => 
     {
