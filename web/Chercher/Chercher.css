@@ -34,24 +34,26 @@ and open the template in the editor.
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+
 }
 
 .title
 {
     font-size: 24px;
     font-weight: 600;
-    color: var(--color-accent);
+    color: white;
 }
 
 .search-form
 {
     min-width: 300px;
     width: 60%;
-    background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
     border-radius: 5px;
     padding: 45px;
     margin: 100px 0px 45px 0px;
+    background-color: var(--color-accent);
 }
 
 .search-form-inputs-container{
@@ -76,7 +78,7 @@ and open the template in the editor.
 {
     margin: 5px 0 5px 0;
     font-family: var(--font-family-light);
-    color: dimgray;
+    color: #dddddd;
 }
 
 .input-form textarea{
@@ -108,7 +110,7 @@ and open the template in the editor.
     width: 250px;
     border: none;
     color: white;
-    background-color: var(--color-accent); 
+    background-color: var(--color-primary); 
     font-size: 18px;
     border-radius: 5px;
     transition: 500ms;
@@ -116,7 +118,7 @@ and open the template in the editor.
 .search-form-buttons-container input:hover
 {
     cursor: pointer;
-    background-color: var(--color-primary);
+    background-color: var(--color-accent2);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     transition: 500ms;
 }
@@ -143,6 +145,8 @@ and open the template in the editor.
     margin-bottom: 20px;
     padding: 30px;
     background-color: whitesmoke;
+    border: 1px solid #dddddd;
+
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     border-radius: 5px;
        

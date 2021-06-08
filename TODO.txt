@@ -20,14 +20,14 @@ AB negative: 1%
 
 - Footer DONE
 - Header DONE
-- About 
+- About DONE
 - Login DONE
 - Register DONE
 - Profile DONE
-- Chercher  Pagination & ( where disponible="oui" ) and maybe where session.id_donneur != id_donneur
 - ViewDonor DONE
 - Accueil DONE index (maybe show cards of each city or region and how many available donors there, and total donors available now)
-- Contact US NOT NEEDED (maybe table ContactMessages id fullname message email )
+- Chercher Pagination & ( where disponible="oui" ) and maybe where session.id_donneur != id_donneur
+
 
 
 advantages in using Region & Ville tables are: we'l have to deal with ids instead of values who may have special characters due french language..

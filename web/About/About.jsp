@@ -38,7 +38,9 @@
                 <div>
                     RedCell est un projet de site web de fin d'études destiné à faciliter la procédure de recherche d'un donneur et de don de sang. Son principal objectif est d'accélérer la procédure de recherche d'un donneur et de pouvoir le contacter le plus rapidement possible, notamment dans les cas critiques.                </div>
                 </div>
-        </div>
+            
+                
+            </div>
         
         
         <%@include file="../Footer/Footer.jsp" %>
