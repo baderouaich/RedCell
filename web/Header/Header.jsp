@@ -104,7 +104,7 @@
         nav ul li
         {
             display: inline-block;
-            padding: 5px 25px;
+            padding: 0px 25px;
         }
         nav ul li a
         {

@@ -1,9 +1,4 @@
-- geometry background image for all pages
-- maybe admin table who can manage donors?
-- allow donor to delete account permanantly in profile
-- sendRedirect from Register to Login on success with ?& values message to alert registration success
-- add github icon to contact socials
-- ensure project works offline (libs)
+
 O positive: 35%
 O negative: 13%
 A positive: 30%
@@ -25,8 +20,8 @@ AB negative: 1%
 - Register DONE
 - Profile DONE
 - ViewDonor DONE
-- Accueil DONE index (maybe show cards of each city or region and how many available donors there, and total donors available now)
-- Chercher Pagination & ( where disponible="oui" ) and maybe where session.id_donneur != id_donneur
+- Accueil DONE index (maybe show cards of eacH region and how many aavailable donors there)
+- Chercher DONE (if there is time add Pagination) 
 
 
 
@@ -34,5 +29,9 @@ advantages in using Region & Ville tables are: we'l have to deal with ids instea
 
 
 
-
-- namecheap github domain
+- DONE geometry background image for all pages
+- NOTIME maybe admin table who can manage donors?
+- DONE allow donor to delete account permanantly in profile
+- DONE sendRedirect from Register to Login on success with ?& values message to alert registration success
+- NOTIME add github icon to contact socials
+- DONE ensure project works offline (libs)
