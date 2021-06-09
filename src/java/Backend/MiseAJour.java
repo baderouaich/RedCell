@@ -143,7 +143,6 @@ public class MiseAJour extends HttpServlet {
                 String req = "UPDATE Donneur SET "
                         + "prenom = '" + prenom + "', "
                         + "nom = '" + nom + "', "
-                        + "id_region = " + "( SELECT id_region FROM Ville WHERE id_ville = " + id_ville + " ), "
                         + "id_ville = " + id_ville + ", "
                         + "id_groupe_sanguin = " + id_groupe_sanguin + ", "
                         + "date_naissance = TO_DATE('" + date_naissance.replace("-", "/") + "', 'yyyy/mm/dd'), "

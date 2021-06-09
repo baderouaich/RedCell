@@ -122,39 +122,12 @@ public class Authentication extends HttpServlet {
                         Reply(request, response, "/Register/Register.jsp", "Utilisateur avec le même e-mail déjà existe", "warn");
                         return;
                     }
-                    
-/*
-CREATE TABLE Donneur
-(
-    id_donneur NUMBER PRIMARY KEY,
-    prenom VARCHAR2(20) NOT NULL,
-    nom VARCHAR2(20) NOT NULL,
-    id_region NUMBER NOT NULL, -- ID Region
-    id_ville NUMBER NOT NULL, -- ID Ville
-    id_groupe_sanguin  NUMBER NOT NULL, -- ID Groupe Sanguin
-    date_naissance DATE NOT NULL,
-    telephone VARCHAR2(15) NOT NULL UNIQUE,
-    email VARCHAR2(128) NOT NULL UNIQUE,
-    password VARCHAR2(256) NOT NULL,
-    disponible VARCHAR2(3) DEFAULT 'oui',
-    
-    -- FOREIGN KEYS --
-    CONSTRAINT DFK_id_region FOREIGN KEY(id_region) REFERENCES Region(id_region) ON DELETE CASCADE,
-    CONSTRAINT DFK_id_ville FOREIGN KEY(id_ville) REFERENCES Ville(id_ville) ON DELETE CASCADE,
-    CONSTRAINT DFK_id_groupe_sanguin FOREIGN KEY(id_groupe_sanguin) REFERENCES GroupeSanguin(id_groupe_sanguin) ON DELETE CASCADE,
-    
-    -- CHECKS --
-    CONSTRAINT DCHECK_email check(REGEXP_LIKE(email, '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')),
-    CONSTRAINT DCHECK_telephone check(REGEXP_LIKE(telephone, '^(\+[0-9]{1,3}|0)([ \-_/]*)(\d[ \-_/]*){9}$')),
-    CONSTRAINT DCHECK_disponible check(lower(disponible) in ('oui', 'non'))
-);
-*/
+                   
                     // Register user into the database
                     String req = "INSERT INTO Donneur VALUES("
                             + "ID_COUNTER.nextval, "
                             + "'" + prenom + "', "
                             + "'" + nom + "', "
-                            + "(" + "SELECT id_region FROM Ville WHERE id_ville = "+ id_ville + "), "
                             + "" + id_ville + ", "
                             + "" + id_groupe_sanguin + ", "
                             + "TO_DATE('" + date_naissance + "', 'yyyy-mm-dd'), "
@@ -216,14 +189,12 @@ CREATE TABLE Donneur
                     }
                     
                     
-                    ResultSet R = Connexion.Seconnecter().createStatement().executeQuery("SELECT id_donneur, prenom, nom FROM Donneur WHERE email = '" + email + "' AND password = '" + password + "'");
+                    ResultSet R = Connexion.Seconnecter().createStatement().executeQuery("SELECT id_donneur FROM Donneur WHERE email = '" + email + "' AND password = '" + password + "'");
                     if(R.next())
                     {
                         //Login Successfull!, set session data
                         HttpSession session = request.getSession();
                         session.setAttribute("id_donneur", R.getObject(1));
-                        session.setAttribute("prenom", R.getObject(2));
-                        session.setAttribute("nom", R.getObject(3));
                         
                         // Send user to Profile page
                         response.sendRedirect("Profile/Profile.jsp");

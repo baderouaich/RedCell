@@ -49,7 +49,8 @@
             <div class="donors-by-region-container-title">Nombre de Donneurs disponibles en ce moment par région :</div>
 
             <%
-                String req = "SELECT COUNT(d.id_donneur) as total, region FROM Donneur d NATURAL JOIN Region WHERE disponible = 'oui' GROUP BY region ORDER BY region ASC";
+                //String req = "SELECT COUNT(d.id_donneur) as total, region FROM Donneur d NATURAL JOIN Region WHERE disponible = 'oui' GROUP BY region ORDER BY region ASC";
+                String req = "SELECT COUNT(distinct d.id_donneur) as total, region FROM Donneur d NATURAL JOIN Ville v JOIN Region r ON r.id_region = v.id_region WHERE disponible = 'oui' GROUP BY region ORDER BY region ASC";
                 ResultSet R = Connexion.Seconnecter().createStatement().executeQuery(req);
                 while(R.next())
                 {%>

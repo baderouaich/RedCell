@@ -85,8 +85,7 @@ public class Chercher extends HttpServlet {
             System.out.println("id_ville" +id_ville);
             System.out.println("id_groupe_sanguin" +id_groupe_sanguin);
             
-            String req = "SELECT id_donneur, prenom, nom, (SELECT region FROM Region WHERE id_region = d.id_region) as region, (SELECT ville FROM Ville WHERE id_ville = d.id_ville) as ville, (SELECT groupe_sanguin FROM GroupeSanguin WHERE id_groupe_sanguin = d.id_groupe_sanguin) as groupe_sanguin FROM Donneur d WHERE disponible = 'oui'";
-            //String req = "SELECT prenom, nom, region, ville, groupe_sanguin FROM Donneur d JOIN Region r on d.id_region = d.id_region JOIN Ville v ON v.id_ville = d.id_ville JOIN GroupeSanguin g on g.id_groupe_sanguin = d.id_groupe_sanguin  WHERE disponible = 'oui' ";
+            String req = "SELECT id_donneur, prenom, nom, ville, (SELECT region FROM Region r WHERE r.id_region = v.id_region) as region, groupe_sanguin FROM Donneur d NATURAL JOIN Ville v NATURAL JOIN GroupeSanguin WHERE disponible = 'oui'";
             if(!id_ville.isEmpty())
                 req += " AND id_ville = " + id_ville;
             else if(!id_region.isEmpty() && id_ville.isEmpty()) // search either by ville or region, not both at the same time
