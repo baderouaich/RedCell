@@ -38,7 +38,7 @@
 
                     
                     <!-- Chercher des donateurs, always visible -->
-                    <li><a href="${pageContext.request.contextPath}/Chercher/Chercher.jsp" id="${(pageContext.request.requestURI.equals('/RedCell/Chercher/Chercher.jsp') || pageContext.request.requestURI.equals('/RedCell/ViewDonor/ViewDonor.jsp')) ? 'active-tab' : ''}">Chercher des Donateurs</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Chercher/Chercher.jsp" id="${(pageContext.request.requestURI.equals('/RedCell/Chercher/Chercher.jsp') || pageContext.request.requestURI.equals('/RedCell/ViewDonor/ViewDonor.jsp')) ? 'active-tab' : ''}">Chercher des Donneurs</a></li>
 
                     <%
                          final boolean isLoggedIn = session.getAttribute("id_donneur") != null;

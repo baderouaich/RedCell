@@ -156,7 +156,7 @@ and open the template in the editor.
 .search-result-item
 {
     width: 450px;
-    min-width: 200px;
+    min-width: 300px;
     padding: 15px;
     display: flex;
     flex-direction: row;
@@ -178,6 +178,7 @@ and open the template in the editor.
 .search-result-item-profile-image{
     border-radius: 50%;
     width: 128px;
+    min-width: 100px;
 }
 .search-result-item-fullname
 {

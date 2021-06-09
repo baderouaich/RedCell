@@ -16,9 +16,6 @@
         <title>About</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/About/About.css"/>
       
-        <!-- Default Scripts BEGIN -->
-        <script type="text/javascript" src="${pageContext.request.contextPath}/Alerts.js"></script>
-        <!-- Default Scripts END -->
     </head>
     <body class="background-image">
         <%@include file="../Header/Header.jsp" %>
